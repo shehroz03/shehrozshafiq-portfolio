@@ -33,14 +33,31 @@ export function Contact() {
 
     const form = e.currentTarget;
     const formData = new FormData(form);
-    const payload = {
+
+    // Formspree payload
+    const data = {
       name: formData.get('name') as string,
       email: formData.get('email') as string,
       message: formData.get('message') as string,
     };
 
     try {
-      await api.submitContact(payload);
+      // 1) Send to Formspree
+      const response = await fetch('https://formspree.io/f/xkovpprb', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error('Formspree submission failed');
+      }
+
+      // 2) Keep logic for local admin panel tracking
+      await api.submitContact(data);
 
       setStatus('success');
       form.reset();

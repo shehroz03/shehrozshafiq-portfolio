@@ -291,7 +291,7 @@ export function Home() {
                     variant="ghost"
                     className="gap-2 text-[#6B7280] hover:text-[#2E2E2E] hover:bg-white/80 transition-all duration-200"
                   >
-                    <a href="/Shehroz-Shafiq-Resume.pdf" download="Shehroz-Shafiq-Resume.pdf">
+                    <a href="/images/projects/Shehroz-Shafiq-Resume.pdf" download="Shehroz-Shafiq-Resume.pdf">
                       <Download className="w-5 h-5" /> Resume
                     </a>
                   </Button>
@@ -680,7 +680,7 @@ export function Home() {
                     variant="outline"
                     className="border-2 border-white text-white hover:bg-white/10 gap-2"
                   >
-                    <a href="/Shehroz-Shafiq-Resume.pdf" download="Shehroz-Shafiq-Resume.pdf">
+                    <a href="/images/projects/Shehroz-Shafiq-Resume.pdf" download="Shehroz-Shafiq-Resume.pdf">
                       <Download className="w-5 h-5" />
                       Download CV
                     </a>

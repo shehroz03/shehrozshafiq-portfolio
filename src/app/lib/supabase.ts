@@ -22,25 +22,28 @@ export const api = {
   // Contact form submission
   async submitContact(data: { name: string; email: string; message: string }) {
     /*
-    // Original Supabase implementation (network call)
-    const response = await fetch(`${SUPABASE_URL}/functions/v1/super-api`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${publicAnonKey}`,
-      },
-      body: JSON.stringify(data),
-    });
+    // Original Supabase implementation (network call) - Re-enabled for email functionality
+    try {
+      const response = await fetch(`${SUPABASE_URL}/functions/v1/super-api`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${publicAnonKey}`,
+        },
+        body: JSON.stringify(data),
+      });
 
-    const result = await response.json();
+      const result = await response.json();
 
-    if (!response.ok) {
-      throw new Error(result.error || 'Failed to submit contact form');
+      if (!response.ok) {
+        console.warn('Network submission failed, falling back to local storage:', result.error);
+      }
+    } catch (error) {
+      console.warn('Network submission error, falling back to local storage:', error);
     }
-
-    return result;
     */
 
+    // Still save to local memory for the session
     const now = new Date().toISOString();
     const newContact: Contact = {
       id: nextContactId++,
