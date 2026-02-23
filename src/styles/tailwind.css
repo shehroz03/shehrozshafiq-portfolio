@@ -1,0 +1,22 @@
+@import 'tailwindcss' source(none);
+@source '../**/*.{js,ts,jsx,tsx}';
+
+@import 'tw-animate-css';
+
+/* Custom glassmorphism and scroll animations */
+@layer utilities {
+  .glassmorphism {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .scroll-section {
+    scroll-snap-align: start;
+  }
+
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+}
