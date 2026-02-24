@@ -87,7 +87,7 @@ export const projects: Project[] = [
     shortDescription:
       "Full-stack platform for discovering, filtering and saving scholarships, with a production-ready admin dashboard and robust search experience.",
     tech: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-    image: "/images/projects/scholariq.jpg",
+    image: "/images/projects/scholariq.png",
     liveUrl: "",
     codeUrl: "",
     featured: true,
