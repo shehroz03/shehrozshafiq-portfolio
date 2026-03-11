@@ -18,11 +18,11 @@ export function AboutHero() {
             <h2 className="text-2xl lg:text-3xl text-[#4A90E2] font-semibold">
               Shehroz Shafiq
             </h2>
-            <p className="text-xl text-[#6B7280]">
-              Full-Stack Developer & Automation Specialist
+            <p className="text-xl lg:text-2xl font-medium text-[#4B5563] tracking-wide">
+              Full-Stack Developer | MERN, React Native & Flutter
             </p>
             <p className="text-lg text-[#6B7280] leading-relaxed">
-              I’m a full-stack developer focused on building scalable web and mobile applications. I specialize in the MERN stack, Flutter, and automation solutions that solve real-world problems. With a strong foundation in both frontend and backend development, I create seamless user experiences backed by robust architecture. Currently, I’m focusing on automation-heavy dashboards, admin panels, and data-driven platforms for SMEs and startups.
+              I’m a full-stack developer using MERN, React Native and Flutter to build web and mobile apps for startups and small businesses. I focus on clean UI, smooth user experience, and reliable backend architecture. Recently, I’ve been building automation-heavy, data-driven dashboards and admin panels that help teams save time and make better decisions.
             </p>
           </motion.div>
 

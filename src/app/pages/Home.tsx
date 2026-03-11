@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { ArrowRight, Download, Mail, Quote, Star, ExternalLink, Award, Briefcase, Users, Target } from 'lucide-react';
 import { Loader } from '../components/Loader';
 import { Hero3DSkills } from '../components/Hero3DSkills';
@@ -14,6 +14,7 @@ import { projectsAPI, configAPI } from '../lib/api';
 import { projects, type Project } from '../data/projects';
 
 export function Home() {
+  const navigate = useNavigate();
   const [showLoader, setShowLoader] = useState(true);
   const [currentSection, setCurrentSection] = useState(0);
   const [featuredProjects, setFeaturedProjects] = useState<Project[]>([]);
@@ -185,17 +186,9 @@ export function Home() {
                 </motion.div>
 
                 {/* ANIMATION STAGE 2: Subtitle fade-up (1.2s, stagger 80ms) */}
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 1 }}
-                  style={{
-                    letterSpacing: '-0.02em',
-                  }}
-                  className="text-2xl lg:text-3xl font-semibold bg-gradient-to-r from-blue-600 via-blue-500 to-purple-600 bg-clip-text text-transparent"
-                >
-                  Full-Stack Developer & Automation Specialist
-                </motion.p>
+                <p className="text-xl lg:text-2xl font-medium text-[#4B5563] tracking-wide mt-2">
+                  Full-Stack Developer | MERN, React Native & Flutter
+                </p>
               </div>
 
               {/* ANIMATION STAGE 2: Paragraph fade-up (1.32s, stagger +120ms) */}
@@ -208,7 +201,7 @@ export function Home() {
                 }}
                 className="text-base sm:text-lg text-[#6B7280] leading-relaxed"
               >
-                I help startups and businesses launch production‑ready web and mobile apps.
+                I build web and mobile apps for startups and small businesses using React, Next.js, React Native and Firebase.
               </motion.p>
 
               {/* ANIMATION STAGE 2: Buttons fade-up with shadow pop (1.44s, stagger +120ms) */}
@@ -415,8 +408,8 @@ export function Home() {
                   color: 'indigo'
                 },
                 {
-                  number: /* config?.stats?.success || */ '100%',
-                  label: 'Success Rate',
+                  number: /* config?.stats?.success || */ 'High',
+                  label: 'Client Satisfaction',
                   icon: Target,
                   color: 'teal'
                 },
@@ -483,9 +476,7 @@ export function Home() {
               variants={staggerContainer}
               className="grid md:grid-cols-3 gap-8"
             >
-              {['socialvibing', 'sidra-cotton-city', 'scholariq']
-                .map(id => projects.find(p => p.id === id))
-                .filter((p): p is Project => Boolean(p))
+              {featuredProjects
                 .map((project) => (
                   <motion.div
                     key={project.id}
@@ -495,7 +486,7 @@ export function Home() {
                     style={{
                       boxShadow: '0 4px 20px rgba(0, 0, 0, 0.05)',
                     }}
-                    onClick={() => window.location.href = '/projects'}
+                    onClick={() => navigate('/projects')}
                   >
                     {project.projectStatus === 'ongoing' && (
                       <div className="absolute top-4 right-4 px-2 py-1 bg-green-500 text-white text-xs font-semibold rounded-full flex items-center gap-1">
@@ -653,8 +644,7 @@ export function Home() {
                   transition={{ delay: 0.3, duration: 0.5, ease: 'easeOut' }}
                   className="text-lg text-white/90 mb-8 max-w-2xl mx-auto"
                 >
-                  Let's collaborate and create something amazing together.
-                  I'm available for freelance projects and full-time opportunities.
+                  Have a project in mind? Message me and I'll reply within 24 hours.
                 </motion.p>
 
                 <motion.div

@@ -16,6 +16,7 @@ export const UpworkIcon = () => (
 // Contact Information
 export const contactInfo = {
   email: 'shehrozshafiq03@gmail.com',
+  phone: '+92-321-4261477',
   location: 'Pakistan',
   name: 'Shehroz Shafiq',
   title: 'Full-Stack Developer',

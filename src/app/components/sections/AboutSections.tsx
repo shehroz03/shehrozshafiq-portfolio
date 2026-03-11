@@ -3,48 +3,62 @@ import { Code2, Database, Smartphone, Bot, Award, Briefcase } from 'lucide-react
 import { fadeInUpSmall, staggerContainer, staggerItem } from '../../utils/animations';
 
 const skills = [
-  { name: 'React & Next.js', level: 95, icon: Code2, color: 'from-blue-500 to-blue-600' },
-  { name: 'Node.js & Express', level: 90, icon: Database, color: 'from-green-500 to-green-600' },
-  { name: 'Flutter & Dart', level: 85, icon: Smartphone, color: 'from-purple-500 to-purple-600' },
-  { name: 'Python & Automation', level: 80, icon: Bot, color: 'from-orange-500 to-orange-600' },
+  { name: 'React / Next.js', level: 'Advanced', icon: Code2, color: 'from-blue-500 to-blue-600' },
+  { name: 'Node.js / Express', level: 'Intermediate to Advanced', icon: Database, color: 'from-green-500 to-green-600' },
+  { name: 'Flutter / Dart', level: 'Advanced', icon: Smartphone, color: 'from-purple-500 to-purple-600' },
+  { name: 'Python / Automation', level: 'Advanced', icon: Bot, color: 'from-orange-500 to-orange-600' },
 ];
 
 const timeline = [
   {
-    year: '2022 - 2026',
-    title: 'BSc Computer Science',
-    organization: 'The University of Lahore (UOL)',
-    description: 'Focusing on software engineering, algorithms, and modern web technologies.',
-  },
-  {
-    year: '2022 - Present',
+    year: 'Jan 2023 - Present',
     title: 'Freelance Full-Stack Developer',
     organization: 'Upwork & Fiverr',
     description: (
       <ul className="list-disc list-outside ml-4 space-y-1">
-        <li>Delivered 10+ production projects focusing on dashboards, admin panels, and business tools for international clients.</li>
-        <li>Implemented secure authentication, role-based access, and analytics so clients can track their key metrics in real time.</li>
-        <li>Built automation workflows and scrapers that processed 10k+ records for client datasets.</li>
+        <li>10+ web & mobile projects delivered for international clients.</li>
+        <li>Built apps with MERN, React Native, and Flutter.</li>
+        <li>Improved app load time by up to 35%.</li>
+        <li>Integrated Stripe for secure online payments.</li>
       </ul>
     ),
   },
   {
-    year: '2024 - Present',
-    title: 'Data Scraping & Automation Specialist',
-    organization: 'Corporate Website Solutions + Freelance',
+    year: 'Jun 2024 - Jan 2026',
+    title: 'Data Systems Engineer',
+    organization: 'Corporate Website Solutions',
     description: (
       <ul className="list-disc list-outside ml-4 space-y-1">
-        <li>Developed Python-based scraping pipelines with scheduling, error handling, and data cleaning.</li>
-        <li>Reduced manual data collection time for clients from hours to a few minutes by automating data workflows.</li>
-        <li>Created dashboards and reports so non-technical users can explore large datasets easily.</li>
+        <li>Scraped 10,000+ records per week using Python.</li>
+        <li>Automated data collection and saved 60% manual work.</li>
+        <li>Cleaned and organized large datasets for reporting.</li>
+        <li>Helped maintain reliable data pipelines for internal tools.</li>
       </ul>
     ),
+  },
+  {
+    year: 'Oct 2025 - Feb 2026',
+    title: 'Full-Stack Developer (ScholarIQ FYP)',
+    organization: 'The University of Lahore',
+    description: (
+      <ul className="list-disc list-outside ml-4 space-y-1">
+        <li>Built React, Python, SQLite based scholarship assistant.</li>
+        <li>Platform that collects student data and recommends suitable scholarships.</li>
+        <li>Includes an AI consultant chatbot and direct application links.</li>
+      </ul>
+    ),
+  },
+  {
+    year: '2022 - 2026',
+    title: 'BSCS',
+    organization: 'The University of Lahore, Lahore, Pakistan',
+    description: 'Focusing on software engineering, algorithms, and modern web technologies.',
   },
 ];
 
 const expertise = [
   {
-    title: 'Frontend Development',
+    title: 'Frontend',
     icon: Code2,
     skills: [
       { name: 'React', description: '' },
@@ -56,7 +70,17 @@ const expertise = [
     color: 'from-blue-500 to-blue-600',
   },
   {
-    title: 'Backend Development',
+    title: 'Mobile',
+    icon: Smartphone,
+    skills: [
+      { name: 'Flutter', description: '' },
+      { name: 'React Native', description: '' },
+      { name: 'Dart', description: '' }
+    ],
+    color: 'from-purple-500 to-purple-600',
+  },
+  {
+    title: 'Backend & Databases',
     icon: Database,
     skills: [
       { name: 'Node.js', description: '' },
@@ -68,16 +92,16 @@ const expertise = [
     color: 'from-green-500 to-green-600',
   },
   {
-    title: 'Automation & Tools',
+    title: 'Tools',
     icon: Bot,
     skills: [
-      { name: 'Web Scraping', description: 'Python, Playwright, Puppeteer, BeautifulSoup' },
-      { name: 'Bots', description: 'task automation and chat bots (Telegram/WhatsApp)' },
-      { name: 'Integrations', description: 'Stripe, Firebase, Supabase, REST APIs' },
-      { name: 'CI/CD', description: 'GitHub Actions' },
-      { name: 'Cloud', description: 'Vercel, Render, Railway' }
+      { name: 'Stripe', description: 'Payment integration' },
+      { name: 'Web Scraping', description: 'Python, Playwright, Puppeteer' },
+      { name: 'Python (Web Scraping & Automation)', description: '' },
+      { name: 'Git & GitHub Actions', description: '' },
+      { name: 'Vercel & Firebase', description: '' }
     ],
-    color: 'from-purple-500 to-purple-600',
+    color: 'from-orange-500 to-orange-600',
   },
 ];
 
@@ -125,17 +149,17 @@ export function AboutSections() {
                     <div className="flex-1">
                       <div className="flex justify-between items-center mb-2">
                         <h3 className="font-semibold text-[#2E2E2E]">{skill.name}</h3>
-                        <span className="text-sm font-bold text-[#4A90E2]">{skill.level}%</span>
+                        <span className="text-xs font-bold text-[#4A90E2] uppercase tracking-wider">{skill.level}</span>
                       </div>
                     </div>
                   </div>
-                  <div className="relative h-3 bg-white rounded-full overflow-hidden">
+                  <div className="relative h-1 bg-gray-100 rounded-full overflow-hidden">
                     <motion.div
                       initial={{ width: 0 }}
-                      whileInView={{ width: `${skill.level}%` }}
+                      whileInView={{ width: '100%' }}
                       viewport={{ once: true }}
                       transition={{ duration: 1, delay: index * 0.1 + 0.3, ease: 'easeOut' }}
-                      className={`absolute h-full bg-gradient-to-r ${skill.color} rounded-full`}
+                      className={`absolute h-full bg-gradient-to-r ${skill.color} rounded-full opacity-20`}
                     />
                   </div>
                 </motion.div>
@@ -149,7 +173,7 @@ export function AboutSections() {
             viewport={{ once: true }}
             className="text-center mt-8 text-xs text-[#6B7280] italic"
           >
-            Self-assessed skill levels based on 3+ years of hands-on project work.
+            Based on 3+ years of hands-on experience building web and mobile apps.
           </motion.p>
         </div>
       </section>
