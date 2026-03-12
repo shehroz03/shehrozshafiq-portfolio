@@ -42,7 +42,7 @@ export const socialLinks = [
   {
     name: 'Upwork',
     icon: UpworkIcon,
-    url: 'https://www.upwork.com/freelancers/~01f611eabb374e757e?viewMode=1',
+    url: 'https://www.upwork.com/freelancers/shehrozshafiq?viewMode=1',
     color: 'hover:text-[#14A800]',
     handle: 'Shehroz S.',
   },
