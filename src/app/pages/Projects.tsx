@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ExternalLink, Github, Calendar, User, MapPin, Clock, ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import { Button } from '../components/ui/button';
@@ -12,6 +12,7 @@ import { fadeInUp, fadeInUpSmall, staggerContainer, staggerItem, scaleIn, modalV
 import { projects, type Project } from '../data/projects';
 
 export function Projects() {
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [projectsList, setProjectsList] = useState<Project[]>([]);
@@ -349,12 +350,22 @@ export function Projects() {
                         </h3>
                         <div className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl bg-black border border-gray-800 ring-4 ring-blue-500/5 group">
                           <video 
+                            ref={videoRef}
                             key={selectedProject.videoUrl}
                             controls 
                             playsInline
                             preload="metadata"
-                            className="w-full h-full object-contain"
+                            className="w-full h-full object-contain cursor-pointer"
                             poster={selectedProject.image}
+                            onClick={() => {
+                              if (videoRef.current) {
+                                if (videoRef.current.paused) {
+                                  videoRef.current.play();
+                                } else {
+                                  videoRef.current.pause();
+                                }
+                              }
+                            }}
                           >
                             <source src={selectedProject.videoUrl} type="video/mp4" />
                             Your browser does not support the video tag.
