@@ -349,14 +349,16 @@ export function Projects() {
                         </h3>
                         <div className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl bg-black border border-gray-800 ring-4 ring-blue-500/5 group">
                           <video 
+                            key={selectedProject.videoUrl}
                             controls 
+                            playsInline
+                            preload="metadata"
                             className="w-full h-full object-contain"
                             poster={selectedProject.image}
                           >
                             <source src={selectedProject.videoUrl} type="video/mp4" />
                             Your browser does not support the video tag.
                           </video>
-                          <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-60" />
                         </div>
                       </div>
                     )}
