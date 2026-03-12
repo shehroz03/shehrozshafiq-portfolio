@@ -10,10 +10,8 @@ export function SocialPopup() {
   useEffect(() => {
     if (hasBeenDismissed) return;
 
-    // Initial show after 15 seconds
-    const initialTimer = setTimeout(() => {
-      setIsVisible(true);
-    }, 15000);
+    // Show IMMEDIATELY on first load
+    setIsVisible(true);
 
     // Auto hide after 8 seconds whenever it becomes visible
     let hideTimer: NodeJS.Timeout;
@@ -23,15 +21,14 @@ export function SocialPopup() {
       }, 8000);
     }
 
-    // Interval to show every 30 seconds (8s visible + 22s hidden)
+    // Interval to show every 20 seconds (8s visible + 12s hidden)
     const repeatInterval = setInterval(() => {
       if (!hasBeenDismissed) {
         setIsVisible(true);
       }
-    }, 30000);
+    }, 20000);
 
     return () => {
-      clearTimeout(initialTimer);
       clearTimeout(hideTimer);
       clearInterval(repeatInterval);
     };
@@ -41,11 +38,11 @@ export function SocialPopup() {
     <AnimatePresence>
       {isVisible && !hasBeenDismissed && (
         <motion.div
-          initial={{ y: 200, opacity: 0, scale: 0.9 }}
-          animate={{ y: 0, opacity: 1, scale: 1 }}
-          exit={{ y: 200, opacity: 0, scale: 0.9 }}
+          initial={{ x: 200, opacity: 0, scale: 0.9 }}
+          animate={{ x: 0, opacity: 1, scale: 1 }}
+          exit={{ x: 200, opacity: 0, scale: 0.9 }}
           transition={{ type: "spring", damping: 25, stiffness: 200 }}
-          className="fixed bottom-6 left-6 z-[100] bg-white/90 backdrop-blur-xl rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.1)] p-6 border border-white/20 max-w-[320px] group"
+          className="fixed bottom-6 right-6 z-[100] bg-white/90 backdrop-blur-xl rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.1)] p-6 border border-white/20 max-w-[320px] group"
         >
           {/* Close Button */}
           <button 
