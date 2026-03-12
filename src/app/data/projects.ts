@@ -16,6 +16,7 @@ export interface Project {
   shortDescription: string;
   tech: string[];
   image: string;      // /images/... path
+  extraImages?: string[]; // Additional gallery images
   liveUrl?: string;
   codeUrl?: string;
   githubUrl?: string; // mapping to codeUrl
@@ -43,40 +44,42 @@ export const projects: Project[] = [
     title: "SocialVibing – Full-Stack Social Networking & Analytics Ecosystem",
     slug: "socialvibing-full-ecosystem",
     category: "Web App",
-    tagline: "Comprehensive social platform with real-time analytics for creators.",
+    tagline: "Full-stack networking ecosystem with Marketplace & Community Chat.",
     shortDescription:
-      "SocialVibing is a complete social networking ecosystem featuring a cross-platform mobile app (React Native), a web frontend, and a production-ready analytics dashboard. It powers creator communities with live streaming, real-time engagement tracking via Firestore, and automated post performance insights in a sleek, VIP-grade interface.",
+      "A complete social networking ecosystem featuring a cross-platform mobile app, web frontend, and analytics dashboard. Now includes a built-in Marketplace for creators and a real-time Community Chat system for enhanced engagement.",
     tech: ["React", "React Native", "Firebase", "Firestore", "Cloud Storage"],
     image: "/images/projects/socialvibing.jpg.png",
+    extraImages: ["/images/projects/socialvibing1.jpeg", "/images/projects/socialvibing2.jpeg"],
     liveUrl: "https://socialvibing.online",
     codeUrl: "",
     featured: true,
     status: 'published',
-    overview: "A massive ecosystem project that bridges the gap between social engagement and data analytics, providing users with a unified experience across web and mobile.",
-    solutionFeatures: ["Live Streaming & Communities", "Real-time Metrics Dashboard", "Cross-Platform (iOS/Android/Web)", "Automated Post Analytics"],
+    overview: "A massive ecosystem project that bridges the gap between social engagement, e-commerce, and data analytics. It provides a unified experience for creators to build communities and sell products.",
+    solutionFeatures: ["Integrated Marketplace & Store", "Real-time Community Chat", "Live Streaming & Engagement", "Advanced Analytics Dashboard"],
     role: "Lead Full-Stack Developer",
     timeline: "Jan 2023 – Present",
-    impact: ["Unified 3 separate platforms into one ecosystem", "Reduced app load time by 35%", "Served 100+ brands with real-time data"]
+    impact: ["Unified social networking with e-commerce", "Reduced app load time by 35%", "Scalable architecture for 100k+ users"]
   },
   {
     id: "scholariq",
     title: "ScholarIQ – AI‑Driven Scholarship Assistant (FYP)",
     slug: "scholariq-scholarship-platform",
     category: "Web App",
-    tagline: "Platform that collects student data and recommends suitable scholarships.",
+    tagline: "AI-driven scholarship platform with Premium AI Consultant.",
     shortDescription:
-      "ScholarIQ is an AI‑driven scholarship assistant that helps students discover relevant scholarships based on their profile and eligibility. It combines a React frontend with a Python backend and database to power intelligent search, filters and recommendation‑style results for global opportunities.",
+      "ScholarIQ helps students discover global scholarships through intelligent data scraping and AI-powered recommendations. Features a new Premium AI Consultant for tailored application guidance and eligibility analysis.",
     tech: ["React", "Python", "SQLite"],
     image: "/images/projects/scholariq.png",
+    extraImages: ["/images/projects/scholariq1.png"],
     liveUrl: "",
     codeUrl: "",
     featured: true,
     status: 'published',
-    overview: "An AI-driven platform helping students find global funded opportunities through intelligent filtering and a dedicated consultant chatbot.",
-    solutionFeatures: ["Advanced search filters", "AI Consultant Chatbot", "Direct form links", "Automated notifications"],
+    overview: "An AI-powered platform for global scholarship discovery, featuring a sophisticated AI Consultant and a subscription-based Premium Version for advanced tracking and guidance.",
+    solutionFeatures: ["Premium AI Consultant Assistant", "Subscription-based Feature Tiers", "Intelligent Search & Filtering", "Real-time Opportunity Alerts"],
     role: "Full-Stack Developer",
     timeline: "Oct 2025 – Feb 2026",
-    impact: ["Connected students with scholarships", "100% accuracy in data scraping"]
+    impact: ["Enabled premium personalized guidance", "100% data accuracy in scraping", "Streamlined application workflows"]
   },
   {
     id: "tourease",
@@ -88,6 +91,7 @@ export const projects: Project[] = [
       "TourEase is a Flutter‑based travel planner that helps users organize trips, stays and activities in one place. It lets users create trips, manage itineraries and track bookings with a smooth, cross‑platform mobile UI for Android and iOS.",
     tech: ["Flutter", "Dart", "Firebase"],
     image: "/images/projects/tourease.jpg",
+    extraImages: ["/images/projects/tourease1.jpg", "/images/projects/tourease2.jpg"],
     liveUrl: "",
     codeUrl: "",
     featured: true,

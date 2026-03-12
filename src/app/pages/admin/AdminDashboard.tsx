@@ -28,14 +28,15 @@ interface Project {
   tagline: string;
   category: string;
   shortDescription: string;
-  overview: string;
-  context: string;        // "Problem / Context" — server field name
-  solution: string[];     // "Solution & Features" — server field name
-  impact: string[];
-  role: string;
-  timeline: string;
+  overview?: string;
+  context?: string;        // "Problem / Context" — server field name
+  solution?: string[];     // "Solution & Features" — server field name
+  impact?: string[];
+  role?: string;
+  timeline?: string;
   tech: string[];
   image: string;
+  extraImages?: string[];
   liveUrl?: string;
   githubUrl?: string;
   caseStudyUrl?: string;
@@ -53,7 +54,7 @@ const EMPTY_FORM: Partial<Project> = {
   title: '', slug: '', tagline: '', category: 'Web App',
   shortDescription: '', overview: '', context: '', solution: [],
   impact: [], role: '', timeline: '', tech: [],
-  image: '', liveUrl: '', githubUrl: '', caseStudyUrl: '',
+  image: '', extraImages: [], liveUrl: '', githubUrl: '', caseStudyUrl: '',
   status: 'published', featured: false,
   imageConfig: { objectFit: 'cover', cornerRadius: 12, background: '#F3F4F6' },
 };
@@ -222,6 +223,7 @@ function ProjectEditor({
   const [techInput, setTechInput] = useState('');
   const [solInput, setSolInput] = useState('');
   const [impactInput, setImpactInput] = useState('');
+  const [extraImageInput, setExtraImageInput] = useState('');
   const [imageSource, setImageSource] = useState<'url' | 'upload'>('url');
   const [isUploading, setIsUploading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
@@ -255,6 +257,15 @@ function ProjectEditor({
     }
   };
   const removeImpact = (s: string) => set({ impact: formData.impact?.filter(x => x !== s) || [] });
+
+  // Extra Images
+  const addExtraImage = () => {
+    if (extraImageInput.trim()) {
+      set({ extraImages: [...(formData.extraImages || []), extraImageInput.trim()] });
+      setExtraImageInput('');
+    }
+  };
+  const removeExtraImage = (img: string) => set({ extraImages: formData.extraImages?.filter(x => x !== img) || [] });
 
   // Image upload simulation
   const handleFileUpload = (file: File) => {
@@ -454,6 +465,43 @@ function ProjectEditor({
                       ))}
                     </div>
                   )}
+                </div>
+
+                {/* Extra Images Gallery Management */}
+                <div className="pt-4 border-t border-gray-100">
+                  <FieldLabel hint="Add up to 3–4 additional gallery images">Gallery Images (Extra)</FieldLabel>
+                  <div className="space-y-3">
+                    <div className="flex gap-2">
+                      <Input
+                        value={extraImageInput}
+                        onChange={(e) => setExtraImageInput(e.target.value)}
+                        onKeyDown={(e) => { if (e.key === 'Enter') { e.preventDefault(); addExtraImage(); } }}
+                        className="bg-gray-50 border-gray-200 text-sm"
+                        placeholder="Paste additional image URL…"
+                      />
+                      <Button type="button" onClick={addExtraImage} size="sm" className="shrink-0 bg-blue-500 hover:bg-blue-600 text-white">Add</Button>
+                    </div>
+                    
+                    {formData.extraImages && formData.extraImages.length > 0 && (
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-2">
+                        {formData.extraImages.map((img, idx) => (
+                          <div key={idx} className="group relative aspect-video rounded-lg overflow-hidden border border-gray-200 bg-gray-50">
+                            <ImageWithFallback src={img} alt={`Gallery ${idx}`} className="w-full h-full object-cover" />
+                            <button
+                              type="button"
+                              onClick={() => removeExtraImage(img)}
+                              className="absolute top-1 right-1 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-lg"
+                            >
+                              <X className="w-3 h-3" />
+                            </button>
+                            <div className="absolute inset-x-0 bottom-0 bg-black/40 py-1 text-[8px] text-white text-center opacity-0 group-hover:opacity-100 transition-opacity">
+                              Image {idx + 1}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             </SectionCard>

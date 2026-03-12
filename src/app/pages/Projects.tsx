@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ExternalLink, Github, Calendar, User, MapPin, Clock } from 'lucide-react';
+import { ExternalLink, Github, Calendar, User, MapPin, Clock, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '../components/ui/dialog';
 import { Badge } from '../components/ui/badge';
@@ -13,9 +13,14 @@ import { projects, type Project } from '../data/projects';
 
 export function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [projectsList, setProjectsList] = useState<Project[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<'all' | 'Web App' | 'Scraping' | 'Mobile App'>('all');
+
+  const allSelectedProjectImages = selectedProject 
+    ? [selectedProject.image, ...(selectedProject.extraImages || [])] 
+    : [];
 
   useEffect(() => {
     // Local data loading
@@ -142,21 +147,18 @@ export function Projects() {
                   initial="hidden"
                   animate="visible"
                   variants={staggerContainer}
-                  className="grid md:grid-cols-2 gap-8"
+                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
                 >
                   {filteredProjects.map((project) => (
                     <motion.div
                       key={project.id}
                       variants={staggerItem}
                       whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                      className="bg-white rounded-3xl overflow-hidden border border-gray-200/50 cursor-pointer group flex flex-col h-full"
-                      style={{
-                        boxShadow: '0 8px 40px rgba(0, 0, 0, 0.08)',
-                      }}
+                      className="bg-white rounded-2xl overflow-hidden border border-gray-100 cursor-pointer group flex flex-col h-full hover:shadow-xl transition-all duration-300"
                       onClick={() => setSelectedProject(project)}
                     >
-                      {/* Image Header */}
-                      <div className="relative h-56 overflow-hidden">
+                      {/* Image Preview - Smaller Height for 3 cols */}
+                      <div className="relative h-44 overflow-hidden">
                         <motion.div
                           whileHover={{ scale: 1.05 }}
                           transition={{ duration: 0.6 }}
@@ -168,63 +170,46 @@ export function Projects() {
                             className="w-full h-full object-cover"
                           />
                         </motion.div>
-                        <div className={`absolute inset-0 bg-gradient-to-br ${project.color || 'from-blue-500 to-blue-600'} opacity-20 mix-blend-multiply`} />
-
+                        <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        
                         {/* Status Badge */}
                         {project.projectStatus === 'ongoing' && (
-                          <div className="absolute top-4 right-4 px-3 py-1 bg-green-500 text-white text-xs font-semibold rounded-full flex items-center gap-1.5">
-                            <div className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
-                            Ongoing
+                          <div className="absolute top-3 right-3 px-2 py-0.5 bg-green-500 text-white text-[10px] font-bold rounded-full flex items-center gap-1">
+                            <div className="w-1 h-1 bg-white rounded-full animate-pulse" />
+                            Live
                           </div>
                         )}
                       </div>
 
-                      {/* Content */}
-                      <div className="p-6 flex flex-col flex-1">
-                        <div className="mb-4">
-                          <div className={`inline-block px-3 py-1 rounded-full bg-gradient-to-r ${project.color || 'from-blue-500 to-blue-600'} text-white text-xs font-semibold mb-3 capitalize`}>
-                            {project.category.replace('-', ' ')}
+                      {/* Content - More Compact */}
+                      <div className="p-5 flex flex-col flex-1">
+                        <div className="mb-3">
+                          <div className="text-[10px] font-bold text-blue-600 uppercase tracking-wider mb-1">
+                            {project.category}
                           </div>
-                          <h3 className="text-2xl font-bold text-[#2E2E2E] mb-1">
+                          <h3 className="text-lg font-bold text-gray-900 line-clamp-1 mb-1 group-hover:text-blue-600 transition-colors">
                             {project.title}
                           </h3>
-                          <p className="text-sm text-[#6B7280] mb-2 line-clamp-1">
-                            {project.subtitle || project.tagline}
-                          </p>
-                          <p className="text-[#4A90E2] font-medium mb-3">
-                            {project.tagline}
+                          <p className="text-xs text-gray-500 line-clamp-2 leading-relaxed">
+                            {project.shortDescription || project.tagline}
                           </p>
                         </div>
 
-                        {/* Overview (Short) */}
-                        <p className="text-sm text-[#6B7280] line-clamp-2 mb-4">
-                          {project.overview}
-                        </p>
-
-                        {/* Tech Stack */}
-                        <div className="flex flex-wrap gap-2 mb-6 mt-auto">
-                          {project.tech.slice(0, 4).map((tech) => (
-                            <Badge
-                              key={tech}
-                              variant="secondary"
-                              className="bg-[#F7F7F7] text-[#6B7280] hover:bg-[#E5E7EB] border border-gray-200/50 text-xs"
-                            >
+                        {/* Tech Stack - Compact footer */}
+                        <div className="flex flex-wrap gap-1.5 mb-4 mt-auto">
+                          {project.tech.slice(0, 3).map((tech) => (
+                            <span key={tech} className="px-2 py-0.5 bg-gray-50 text-gray-500 text-[10px] border border-gray-100 rounded-md">
                               {tech}
-                            </Badge>
+                            </span>
                           ))}
-                          {project.tech.length > 4 && (
-                            <Badge
-                              variant="secondary"
-                              className="bg-[#F7F7F7] text-[#6B7280] border border-gray-200/50 text-xs"
-                            >
-                              +{project.tech.length - 4} more
-                            </Badge>
+                          {project.tech.length > 3 && (
+                            <span className="text-[10px] text-gray-400 font-medium">+{project.tech.length - 3}</span>
                           )}
                         </div>
 
-                        {/* CTA */}
                         <Button
-                          className={`w-full bg-gradient-to-r ${project.color || 'from-blue-500 to-blue-600'} text-white hover:opacity-90 mt-auto`}
+                          size="sm"
+                          className="w-full bg-gray-900 hover:bg-blue-600 text-white text-xs font-bold transition-all"
                           onClick={(e) => {
                             e.stopPropagation();
                             setSelectedProject(project);
@@ -244,7 +229,12 @@ export function Projects() {
         {/* Project Detail Modal - Case Study Style */}
         <AnimatePresence>
           {selectedProject && (
-            <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
+            <Dialog open={!!selectedProject} onOpenChange={(open) => {
+      if (!open) {
+        setSelectedProject(null);
+        setActiveImageIndex(0);
+      }
+    }}>
               <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto">
                 <motion.div
                   initial="hidden"
@@ -294,14 +284,62 @@ export function Projects() {
                     </div>
                   </DialogHeader>
 
-                  {/* Hero Image */}
-                  <div className="relative h-80 rounded-2xl overflow-hidden">
-                    <ImageWithFallback
-                      src={selectedProject.image}
-                      alt={selectedProject.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className={`absolute inset-0 bg-gradient-to-br ${selectedProject.color || 'from-blue-500 to-blue-600'} opacity-20 mix-blend-multiply`} />
+                  {/* Hero Image & Gallery */}
+                  <div className="space-y-4">
+                    <div className="relative h-96 rounded-2xl overflow-hidden group bg-gray-50 border border-gray-100 shadow-inner">
+                      <AnimatePresence mode="wait">
+                        <motion.div
+                          key={allSelectedProjectImages[activeImageIndex]}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="w-full h-full flex items-center justify-center p-2"
+                        >
+                          <ImageWithFallback
+                            src={allSelectedProjectImages[activeImageIndex]}
+                            alt={`${selectedProject.title} - Image ${activeImageIndex + 1}`}
+                            className="max-w-full max-h-full object-contain"
+                          />
+                        </motion.div>
+                      </AnimatePresence>
+                      <div className={`absolute inset-0 bg-gradient-to-br ${selectedProject.color || 'from-blue-500 to-blue-600'} opacity-[0.03] mix-blend-multiply pointer-events-none`} />
+                      
+                      {/* Navigation Arrows */}
+                      {allSelectedProjectImages.length > 1 && (
+                        <>
+                          <button
+                            onClick={() => setActiveImageIndex((prev) => (prev === 0 ? allSelectedProjectImages.length - 1 : prev - 1))}
+                            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center text-gray-800 opacity-0 group-hover:opacity-100 transition-opacity shadow-lg"
+                          >
+                            <ChevronLeft className="w-6 h-6" />
+                          </button>
+                          <button
+                            onClick={() => setActiveImageIndex((prev) => (prev === allSelectedProjectImages.length - 1 ? 0 : prev + 1))}
+                            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center text-gray-800 opacity-0 group-hover:opacity-100 transition-opacity shadow-lg"
+                          >
+                            <ChevronRight className="w-6 h-6" />
+                          </button>
+                        </>
+                      )}
+                    </div>
+
+                    {/* Thumbnails */}
+                    {allSelectedProjectImages.length > 1 && (
+                      <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
+                        {allSelectedProjectImages.map((img, idx) => (
+                          <button
+                            key={idx}
+                            onClick={() => setActiveImageIndex(idx)}
+                            className={`relative flex-shrink-0 w-24 h-16 rounded-lg overflow-hidden border-2 transition-all ${
+                              activeImageIndex === idx ? 'border-blue-500 ring-2 ring-blue-500/20' : 'border-transparent opacity-60 hover:opacity-100'
+                            }`}
+                          >
+                            <ImageWithFallback src={img} alt="thumbnail" className="w-full h-full object-cover" />
+                          </button>
+                        ))}
+                      </div>
+                    )}
                   </div>
 
                   {/* Case Study Sections */}
