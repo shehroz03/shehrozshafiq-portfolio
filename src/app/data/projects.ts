@@ -17,6 +17,7 @@ export interface Project {
   tech: string[];
   image: string;      // /images/... path
   extraImages?: string[]; // Additional gallery images
+  videoUrl?: string;    // Optional video demo URL
   liveUrl?: string;
   codeUrl?: string;
   githubUrl?: string; // mapping to codeUrl
@@ -50,6 +51,7 @@ export const projects: Project[] = [
     tech: ["React", "React Native", "Firebase", "Firestore", "Cloud Storage"],
     image: "/images/projects/socialvibing.jpg.png",
     extraImages: ["/images/projects/socialvibing1.jpeg", "/images/projects/socialvibing2.jpeg"],
+    videoUrl: "/videos/socialvibing-demo.mp4",
     liveUrl: "https://socialvibing.online",
     codeUrl: "",
     featured: true,

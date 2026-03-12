@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ExternalLink, Github, Calendar, User, MapPin, Clock, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ExternalLink, Github, Calendar, User, MapPin, Clock, ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '../components/ui/dialog';
 import { Badge } from '../components/ui/badge';
@@ -338,6 +338,26 @@ export function Projects() {
                             <ImageWithFallback src={img} alt="thumbnail" className="w-full h-full object-cover" />
                           </button>
                         ))}
+                      </div>
+                    )}
+                    {/* Video Demo (If exists) */}
+                    {selectedProject.videoUrl && (
+                      <div className="mt-8">
+                        <h3 className="text-2xl font-bold text-[#2E2E2E] mb-4 flex items-center gap-3">
+                          <div className={`w-8 h-1 bg-gradient-to-r ${selectedProject.color || 'from-blue-500 to-blue-600'} rounded-full`} />
+                          <Play className="w-5 h-5" /> Video Demo
+                        </h3>
+                        <div className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl bg-black border border-gray-800 ring-4 ring-blue-500/5 group">
+                          <video 
+                            controls 
+                            className="w-full h-full object-contain"
+                            poster={selectedProject.image}
+                          >
+                            <source src={selectedProject.videoUrl} type="video/mp4" />
+                            Your browser does not support the video tag.
+                          </video>
+                          <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-60" />
+                        </div>
                       </div>
                     )}
                   </div>
