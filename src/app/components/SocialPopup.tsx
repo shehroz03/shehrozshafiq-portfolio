@@ -10,29 +10,28 @@ export function SocialPopup() {
   useEffect(() => {
     if (hasBeenDismissed) return;
 
-    // Show IMMEDIATELY on first load
-    setIsVisible(true);
-
-    // Auto hide after 5 seconds whenever it becomes visible
-    let hideTimer: NodeJS.Timeout;
-    if (isVisible) {
-      hideTimer = setTimeout(() => {
+    const triggerCycle = () => {
+      setIsVisible(true);
+      // Hide after 5 seconds
+      const hTimer = setTimeout(() => {
         setIsVisible(false);
       }, 5000);
-    }
+      return hTimer;
+    };
 
-    // Interval to show: 5s visible + 30s hidden = 35s total interval
-    const repeatInterval = setInterval(() => {
-      if (!hasBeenDismissed) {
-        setIsVisible(true);
-      }
+    // Initial show immediately
+    const firstHideTimer = triggerCycle();
+
+    // Repeat every 35 seconds (5s showing + 30s hidden)
+    const interval = setInterval(() => {
+      triggerCycle();
     }, 35000);
 
     return () => {
-      clearTimeout(hideTimer);
-      clearInterval(repeatInterval);
+      clearTimeout(firstHideTimer);
+      clearInterval(interval);
     };
-  }, [isVisible, hasBeenDismissed]);
+  }, [hasBeenDismissed]);
 
   return (
     <AnimatePresence>
