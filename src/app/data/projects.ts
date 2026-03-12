@@ -164,6 +164,40 @@ export const projects: Project[] = [
     timeline: "Jan 2024 – Feb 2024",
     impact: ["200% increase in international inquiries", "Perfect Lighthouse performance score"]
   },
+  {
+    id: "art-gallery",
+    title: "ArtGallery.pk – Luxury 3D Art Marketplace",
+    slug: "art-gallery-luxury-marketplace",
+    category: "Web App",
+    tagline: "Premium art marketplace with AR preview and 3D UI.",
+    shortDescription: "A premium art buying and selling platform with AR wall preview, Glassmorphism UI, and role-based dashboards.",
+    tech: ["React", "TypeScript", "Node.js", "SQLite", "Cloudinary", "Framer Motion", "JWT"],
+    image: "/images/projects/artgallery.jpg",
+    extraImages: [],
+    videoUrl: "",
+    liveUrl: "https://artgallery.pk",
+    codeUrl: "",
+    featured: true,
+    status: 'published',
+    color: "from-purple-500 to-indigo-600",
+    overview: "Production-ready luxury marketplace built from scratch to provide a high-end experience for art collectors and sellers.",
+    context: "Buying luxury art online often lacks the 'physical' feel. ArtGallery.pk solves this by allowing users to preview art in their own space using AR and a high-end 3D interface.",
+    solutionFeatures: [
+      "AR Try-On Studio – upload room photo and preview painting on your wall",
+      "Role-Based Panels – separate dashboards for Admin, Buyer, and Seller",
+      "3D Floating Cards – mouse-responsive tilt and glow animations",
+      "Artwork Marketplace – advanced filters by category, price, and artist",
+      "Secure Auth – JWT authentication with encrypted passwords"
+    ],
+    role: "Full-Stack Developer",
+    timeline: "2026",
+    impact: [
+      "Production-ready luxury marketplace from scratch",
+      "Three fully independent role-based control panels",
+      "Advanced 3D UI with particle system and Glassmorphism design",
+      "Cloud-based image storage via Cloudinary"
+    ]
+  },
 ];
 
 // Helper functions
