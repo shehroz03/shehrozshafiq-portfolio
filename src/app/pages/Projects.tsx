@@ -45,13 +45,35 @@ export function Projects() {
 
   const filteredProjects = selectedCategory === 'all'
     ? projectsList
-    : projectsList.filter(p => p.category === selectedCategory);
+    : projectsList.filter(p => 
+        Array.isArray(p.category) 
+          ? p.category.includes(selectedCategory as any) 
+          : p.category === selectedCategory
+      );
 
   const categories = [
     { id: 'all', label: 'All Projects', count: projectsList.length },
-    { id: 'Web App', label: 'Web Applications', count: projectsList.filter(p => p.category === 'Web App').length },
-    { id: 'Mobile App', label: 'Mobile Apps', count: projectsList.filter(p => p.category === 'Mobile App').length },
-    { id: 'Scraping', label: 'Automation & Scraping', count: projectsList.filter(p => p.category === 'Scraping').length },
+    { 
+      id: 'Web App', 
+      label: 'Web Applications', 
+      count: projectsList.filter(p => 
+        Array.isArray(p.category) ? p.category.includes('Web App') : p.category === 'Web App'
+      ).length 
+    },
+    { 
+      id: 'Mobile App', 
+      label: 'Mobile Apps', 
+      count: projectsList.filter(p => 
+        Array.isArray(p.category) ? p.category.includes('Mobile App') : p.category === 'Mobile App'
+      ).length 
+    },
+    { 
+      id: 'Scraping', 
+      label: 'Automation & Scraping', 
+      count: projectsList.filter(p => 
+        Array.isArray(p.category) ? p.category.includes('Scraping') : p.category === 'Scraping'
+      ).length 
+    },
   ];
 
   return (

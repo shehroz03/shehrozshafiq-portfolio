@@ -11,7 +11,7 @@ export interface Project {
   id: string;
   title: string;
   slug: string;
-  category: ProjectCategory;
+  category: ProjectCategory | ProjectCategory[];
   tagline: string;
   shortDescription: string;
   tech: string[];
@@ -44,7 +44,7 @@ export const projects: Project[] = [
     id: "socialvibing-ecosystem",
     title: "SocialVibing – Full-Stack Social Networking & Analytics Ecosystem",
     slug: "socialvibing-full-ecosystem",
-    category: "Web App",
+    category: ["Web App", "Mobile App"],
     tagline: "Full-stack networking ecosystem with Marketplace & Community Chat.",
     shortDescription:
       "A complete social networking ecosystem featuring a cross-platform mobile app, web frontend, and analytics dashboard. Now includes a built-in Marketplace for creators and a real-time Community Chat system for enhanced engagement.",
@@ -203,7 +203,12 @@ export const projects: Project[] = [
 // Helper functions
 export const getProjectsByCategory = (category: string) => {
   if (category === 'all') return projects;
-  return projects.filter(project => project.category.toLowerCase() === category.toLowerCase());
+  return projects.filter(project => {
+    if (Array.isArray(project.category)) {
+      return project.category.some(cat => cat.toLowerCase() === category.toLowerCase());
+    }
+    return project.category.toLowerCase() === category.toLowerCase();
+  });
 };
 
 export const getProjectBySlug = (slug: string) => {
