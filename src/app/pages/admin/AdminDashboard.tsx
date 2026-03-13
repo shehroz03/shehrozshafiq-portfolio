@@ -26,7 +26,7 @@ interface Project {
   slug: string;
   title: string;
   tagline: string;
-  category: string;
+  category: string | string[];
   shortDescription: string;
   overview?: string;
   context?: string;        // "Problem / Context" — server field name
@@ -367,14 +367,34 @@ function ProjectEditor({
                     className="bg-gray-50 border-gray-200" placeholder="A social platform for connecting through vibe-based matching" />
                 </div>
                 <div>
-                  <FieldLabel>Category</FieldLabel>
-                  <select
-                    value={formData.category}
-                    onChange={(e) => set({ category: e.target.value })}
-                    className="w-full h-10 rounded-md border border-gray-200 bg-gray-50 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20"
-                  >
-                    {CATEGORIES.map(c => <option key={c} value={c}>{c}</option>)}
-                  </select>
+                  <FieldLabel hint="Select one or more categories for this project">Categories</FieldLabel>
+                  <div className="flex flex-wrap gap-1.5 mb-2">
+                    {CATEGORIES.map(c => {
+                      const isArray = Array.isArray(formData.category);
+                      const active = isArray 
+                        ? (formData.category as string[]).includes(c) 
+                        : formData.category === c;
+                      
+                      return (
+                        <button
+                          key={c} type="button"
+                          onClick={() => {
+                            let newCats: string[] = isArray ? [...(formData.category as string[])] : [formData.category as string];
+                            if (active) {
+                              newCats = newCats.filter(x => x !== c);
+                            } else {
+                              newCats.push(c);
+                            }
+                            // Keep at least one category or allow empty?
+                            set({ category: newCats.length === 1 ? newCats[0] : newCats });
+                          }}
+                          className={`text-[10px] px-2.5 py-1 rounded-full border font-bold transition-all ${active ? 'bg-indigo-500 border-indigo-500 text-white' : 'bg-white border-gray-200 text-gray-500 hover:border-indigo-300'}`}
+                        >
+                          {c}
+                        </button>
+                      );
+                    })}
+                  </div>
                 </div>
                 <div>
                   <FieldLabel>Visibility & Featured</FieldLabel>
@@ -981,8 +1001,14 @@ export function AdminDashboard() {
                         {/* Tagline */}
                         <div className="text-sm text-gray-500 line-clamp-1 hidden md:block">{project.tagline || <span className="italic text-gray-300">No tagline</span>}</div>
                         {/* Category */}
-                        <div className="hidden md:block">
-                          <Badge variant="outline" className="text-[10px] border-blue-100 text-blue-600 bg-blue-50 font-medium">{project.category || '—'}</Badge>
+                        <div className="hidden md:flex flex-wrap gap-1">
+                          {Array.isArray(project.category) ? (
+                            (project.category as string[]).map(c => (
+                              <Badge key={c} variant="outline" className="text-[10px] border-blue-50 border-blue-100 text-blue-600 bg-blue-50 font-medium px-1.5 py-0">{c}</Badge>
+                            ))
+                          ) : (
+                            <Badge variant="outline" className="text-[10px] border-blue-100 text-blue-600 bg-blue-50 font-medium px-1.5 py-0">{project.category || '—'}</Badge>
+                          )}
                         </div>
                         {/* Status */}
                         <div className="hidden md:block">
