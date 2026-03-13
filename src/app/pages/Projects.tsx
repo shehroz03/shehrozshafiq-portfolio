@@ -370,28 +370,31 @@ export function Projects() {
                           <div className={`w-8 h-1 bg-gradient-to-r ${selectedProject.color || 'from-blue-500 to-blue-600'} rounded-full`} />
                           <Play className="w-5 h-5" /> Video Demo
                         </h3>
-                        <div className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl bg-black border border-gray-800 ring-4 ring-blue-500/5 group">
+                        <div className="relative aspect-video rounded-3xl overflow-hidden shadow-2xl bg-black border border-gray-800">
                           <video 
                             ref={videoRef}
                             key={selectedProject.videoUrl}
-                            controls 
+                            controls
                             playsInline
+                            muted
                             preload="metadata"
-                            className="w-full h-full object-contain cursor-pointer"
+                            className="w-full h-full object-contain"
                             poster={selectedProject.image}
-                            onClick={() => {
-                              if (videoRef.current) {
-                                if (videoRef.current.paused) {
-                                  videoRef.current.play();
-                                } else {
-                                  videoRef.current.pause();
-                                }
-                              }
+                            onLoadedMetadata={(e) => {
+                              // On mobile, try to unmute once user interacts
+                              const vid = e.currentTarget;
+                              vid.muted = true;
                             }}
                           >
                             <source src={selectedProject.videoUrl} type="video/mp4" />
                             Your browser does not support the video tag.
                           </video>
+                          {/* Unmute hint for mobile */}
+                          <div className="absolute bottom-14 right-3 pointer-events-none">
+                            <span className="text-[10px] bg-black/60 text-white/70 px-2 py-1 rounded-full backdrop-blur-sm">
+                              🔇 Tap 🔊 to unmute
+                            </span>
+                          </div>
                         </div>
                       </div>
                     )}
