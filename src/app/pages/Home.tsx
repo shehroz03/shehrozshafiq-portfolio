@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link, useNavigate } from 'react-router';
 import { ArrowRight, Download, Mail, Quote, Star, ExternalLink, Award, Briefcase, Users, Target } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { Loader } from '../components/Loader';
 import { Hero3DSkills } from '../components/Hero3DSkills';
 import { Button } from '../components/ui/button';
@@ -14,6 +15,7 @@ import { projectsAPI, configAPI } from '../lib/api';
 import { projects, type Project } from '../data/projects';
 
 export function Home() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [showLoader, setShowLoader] = useState(true);
   const [currentSection, setCurrentSection] = useState(0);
@@ -164,7 +166,7 @@ export function Home() {
                     className="w-2 h-2 bg-green-500 rounded-full"
                   />
                   <p className="text-[#4A90E2] font-semibold text-sm">
-                    Available for new projects
+                    {t('hero.availability')}
                   </p>
                 </motion.div>
 
@@ -179,15 +181,15 @@ export function Home() {
                     className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-[#111827] tracking-tight leading-[0.95]"
                     style={{ textShadow: '0 1px 2px rgba(15, 23, 42, 0.06)' }}
                   >
-                    <span className="block">Shehroz</span>
-                    <span className="block">Shafiq</span>
+                    <span className="block">{t('hero.first_name')}</span>
+                    <span className="block">{t('hero.last_name')}</span>
                   </h1>
                   <div className="h-1 w-20 rounded-full bg-gradient-to-r from-blue-500 to-purple-500" />
                 </motion.div>
 
                 {/* ANIMATION STAGE 2: Subtitle fade-up (1.2s, stagger 80ms) */}
                 <p className="text-xl lg:text-2xl font-medium text-[#4B5563] tracking-wide mt-2">
-                  Full-Stack Developer | MERN, React Native & Flutter
+                  {t('hero.subtitle')}
                 </p>
               </div>
 
@@ -201,7 +203,7 @@ export function Home() {
                 }}
                 className="text-base sm:text-lg text-[#6B7280] leading-relaxed"
               >
-                I build web and mobile apps for startups and small businesses using React, Next.js, React Native and Firebase.
+                {t('hero.description')}
               </motion.p>
 
               {/* ANIMATION STAGE 2: Buttons fade-up with shadow pop (1.44s, stagger +120ms) */}
@@ -234,7 +236,7 @@ export function Home() {
                     className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white gap-2 shadow-md hover:shadow-xl transition-all duration-250"
                   >
                     <Link to="/contact">
-                      Get in Touch <ArrowRight className="w-5 h-5" />
+                      {t('hero.get_in_touch')} <ArrowRight className="w-5 h-5" />
                     </Link>
                   </Button>
                 </motion.div>
@@ -260,7 +262,7 @@ export function Home() {
                     className="gap-2 border-2 border-[#6B7280] text-[#2E2E2E] hover:bg-[#2E2E2E] hover:text-white hover:border-[#2E2E2E] transition-all duration-250"
                   >
                     <Link to="/projects">
-                      <Briefcase className="w-5 h-5" /> View My Work
+                      <Briefcase className="w-5 h-5" /> {t('hero.view_my_work')}
                     </Link>
                   </Button>
                 </motion.div>
@@ -285,7 +287,7 @@ export function Home() {
                     className="gap-2 text-[#6B7280] hover:text-[#2E2E2E] hover:bg-white/80 transition-all duration-200"
                   >
                     <a href="/images/projects/Shehroz-Shafiq-Resume.pdf" download="Shehroz-Shafiq-Resume.pdf">
-                      <Download className="w-5 h-5" /> Resume
+                      <Download className="w-5 h-5" /> {t('hero.resume')}
                     </a>
                   </Button>
                 </motion.div>
@@ -361,7 +363,7 @@ export function Home() {
                 }}
               >
                 <p className="text-sm text-[#6B7280] font-medium">
-                  Trusted by clients on freelance platforms
+                  {t('hero.social_proof')}
                 </p>
                 <div className="flex gap-3">
                   {['Upwork', 'Fiverr', 'Remote Clients'].map((platform) => (
@@ -391,25 +393,25 @@ export function Home() {
               {[
                 {
                   number: /* config?.stats?.experience || */ '3',
-                  label: 'Years Experience',
+                  label: t('stats.years_experience'),
                   icon: Briefcase,
                   color: 'blue'
                 },
                 {
                   number: /* config?.stats?.projects || */ '10',
-                  label: 'Projects Completed',
+                  label: t('stats.projects_completed'),
                   icon: Award,
                   color: 'purple'
                 },
                 {
                   number: /* config?.stats?.clients || */ '10',
-                  label: 'Happy Clients',
+                  label: t('stats.happy_clients'),
                   icon: Users,
                   color: 'indigo'
                 },
                 {
                   number: /* config?.stats?.success || */ 'High',
-                  label: 'Client Satisfaction',
+                  label: t('stats.client_satisfaction'),
                   icon: Target,
                   color: 'teal'
                 },
@@ -463,9 +465,9 @@ export function Home() {
               variants={fadeInUpSmall}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl font-bold text-[#2E2E2E] mb-4">Featured Projects</h2>
+              <h2 className="text-4xl font-bold text-[#2E2E2E] mb-4">{t('projects.featured_projects')}</h2>
               <p className="text-lg text-[#6B7280] max-w-2xl mx-auto">
-                Real-world applications and automation solutions built with modern technologies
+                {t('projects.tagline')}
               </p>
             </motion.div>
 
@@ -519,7 +521,7 @@ export function Home() {
             >
               <Button asChild size="lg" variant="outline" className="gap-2">
                 <Link to="/projects">
-                  View All Projects <ArrowRight className="w-5 h-5" />
+                  {t('projects.view_all_projects')} <ArrowRight className="w-5 h-5" />
                 </Link>
               </Button>
             </motion.div>
@@ -635,7 +637,7 @@ export function Home() {
                   }}
                   className="text-4xl lg:text-5xl font-bold text-white mb-4"
                 >
-                  Ready to build your next project?
+                  {t('cta.ready_to_build')}
                 </motion.h2>
                 <motion.p
                   initial={{ opacity: 0, y: 15 }}
@@ -644,7 +646,7 @@ export function Home() {
                   transition={{ delay: 0.3, duration: 0.5, ease: 'easeOut' }}
                   className="text-lg text-white/90 mb-8 max-w-2xl mx-auto"
                 >
-                  Have a project in mind? Message me and I'll reply within 24 hours.
+                  {t('cta.project_in_mind')}
                 </motion.p>
 
                 <motion.div
@@ -661,7 +663,7 @@ export function Home() {
                   >
                     <Link to="/contact">
                       <Mail className="w-5 h-5" />
-                      Contact Me
+                      {t('cta.contact_me')}
                     </Link>
                   </Button>
                   <Button
@@ -672,7 +674,7 @@ export function Home() {
                   >
                     <a href="/images/projects/Shehroz-Shafiq-Resume.pdf" download="Shehroz-Shafiq-Resume.pdf">
                       <Download className="w-5 h-5" />
-                      Download CV
+                      {t('cta.download_cv')}
                     </a>
                   </Button>
                 </motion.div>
@@ -686,7 +688,7 @@ export function Home() {
                   className="mt-8 inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full border border-white/30"
                 >
                   <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                  <span className="text-white text-sm font-medium">Available for work</span>
+                  <span className="text-white text-sm font-medium">{t('cta.available_for_work')}</span>
                 </motion.div>
               </div>
             </motion.div>

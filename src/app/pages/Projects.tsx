@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useTranslation } from 'react-i18next';
 import { ExternalLink, Github, Calendar, User, MapPin, Clock, ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '../components/ui/dialog';
@@ -12,6 +13,7 @@ import { fadeInUp, fadeInUpSmall, staggerContainer, staggerItem, scaleIn, modalV
 import { projects, type Project } from '../data/projects';
 
 export function Projects() {
+  const { t } = useTranslation();
   const videoRef = useRef<HTMLVideoElement>(null);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -52,24 +54,24 @@ export function Projects() {
       );
 
   const categories = [
-    { id: 'all', label: 'All Projects', count: projectsList.length },
+    { id: 'all', label: t('projects.all'), count: projectsList.length },
     { 
       id: 'Web App', 
-      label: 'Web Applications', 
+      label: t('projects.web'), 
       count: projectsList.filter(p => 
         Array.isArray(p.category) ? p.category.includes('Web App') : p.category === 'Web App'
       ).length 
     },
     { 
       id: 'Mobile App', 
-      label: 'Mobile Apps', 
+      label: t('projects.mobile'), 
       count: projectsList.filter(p => 
         Array.isArray(p.category) ? p.category.includes('Mobile App') : p.category === 'Mobile App'
       ).length 
     },
     { 
       id: 'Scraping', 
-      label: 'Automation & Scraping', 
+      label: t('projects.scraping'), 
       count: projectsList.filter(p => 
         Array.isArray(p.category) ? p.category.includes('Scraping') : p.category === 'Scraping'
       ).length 
@@ -89,11 +91,10 @@ export function Projects() {
               className="text-center max-w-3xl mx-auto"
             >
               <h1 className="text-5xl lg:text-6xl font-bold text-[#2E2E2E] mb-6">
-                Featured Projects
+                {t('projects.title')}
               </h1>
               <p className="text-lg text-[#6B7280]">
-                A curated collection of full-stack applications, mobile platforms, and automation solutions
-                showcasing expertise in modern web technologies and data engineering.
+                {t('projects.subtitle')}
               </p>
             </motion.div>
           </div>
@@ -153,7 +154,7 @@ export function Projects() {
                     transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
                     className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full mx-auto mb-4"
                   />
-                  <p className="text-[#6B7280]">Loading projects...</p>
+                  <p className="text-[#6B7280]">{t('projects.loading')}</p>
                 </div>
               ) : filteredProjects.length === 0 ? (
                 <motion.div
@@ -162,7 +163,7 @@ export function Projects() {
                   variants={fadeInUp}
                   className="text-center py-20"
                 >
-                  <p className="text-xl text-[#6B7280]">No projects in this category yet.</p>
+                  <p className="text-xl text-[#6B7280]">{t('projects.no_projects')}</p>
                 </motion.div>
               ) : (
                 <motion.div
@@ -295,7 +296,7 @@ export function Projects() {
                         {selectedProject.projectStatus === 'ongoing' && (
                           <div className="flex items-center gap-2 px-3 py-1 bg-green-50 text-green-600 rounded-full font-semibold">
                             <Clock className="w-4 h-4" />
-                            <span>Ongoing Project</span>
+                            <span>{t('projects.ongoing')}</span>
                           </div>
                         )}
                       </div>

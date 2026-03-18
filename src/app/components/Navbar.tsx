@@ -1,9 +1,18 @@
 import { Link, useLocation } from 'react-router';
 import { motion } from 'motion/react';
-import { Code2 } from 'lucide-react';
+import { Code2, Languages } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { LogoText } from './LogoText';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from './ui/dropdown-menu';
+import { Button } from './ui/button';
 
 export function Navbar() {
+  const { t, i18n } = useTranslation();
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith('/admin');
 
@@ -13,11 +22,22 @@ export function Navbar() {
   }
 
   const links = [
-    { name: 'Home', path: '/' },
-    { name: 'Projects', path: '/projects' },
-    { name: 'About', path: '/about' },
-    { name: 'Contact', path: '/contact' },
+    { name: t('navbar.home'), path: '/' },
+    { name: t('navbar.projects'), path: '/projects' },
+    { name: t('navbar.about'), path: '/about' },
+    { name: t('navbar.contact'), path: '/contact' },
   ];
+
+  const languages = [
+    { code: 'en', name: 'English', flag: '🇺🇸' },
+    { code: 'es', name: 'Español', flag: '🇪🇸' },
+    { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
+  ];
+
+  const changeLanguage = (code: string) => {
+    console.log('Changing language to:', code);
+    i18n.changeLanguage(code);
+  };
 
   return (
     <motion.nav
@@ -38,41 +58,69 @@ export function Navbar() {
           </div>
           <LogoText
             className="font-semibold text-lg tracking-tight text-[#111827] hidden sm:block"
-            fullText="Shehroz Shafiq – Portfolio"
+            fullText={t('navbar.full_name')}
           />
         </Link>
 
-        {/* Nav links */}
-        <div className="flex items-center gap-2 bg-slate-50/60 rounded-full px-1.5 py-1 border border-slate-200/60 shadow-inner">
-          {links.map((link) => {
-            const isActive = location.pathname === link.path;
-            return (
-              <Link
-                key={link.path}
-                to={link.path}
-                className="relative"
-              >
-                <motion.span
-                  className={`inline-flex items-center justify-center px-3.5 py-1.5 text-sm font-medium rounded-full transition-colors ${
-                    isActive
-                      ? 'text-[#1D4ED8]'
-                      : 'text-[#6B7280] hover:text-[#111827]'
-                  }`}
-                  whileHover={{ y: -1, scale: 1.02 }}
-                  transition={{ duration: 0.18, ease: 'easeOut' }}
+        {/* Nav links & Language Switcher */}
+        <div className="flex items-center gap-4">
+          <div className="hidden sm:flex items-center gap-2 bg-slate-50/60 rounded-full px-1.5 py-1 border border-slate-200/60 shadow-inner">
+            {links.map((link) => {
+              const isActive = location.pathname === link.path;
+              return (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className="relative"
                 >
-                  {link.name}
-                </motion.span>
-                {isActive && (
-                  <motion.div
-                    layoutId="navbar-indicator"
-                    className="absolute inset-0 rounded-full bg-white shadow-[0_10px_25px_rgba(37,99,235,0.22)] -z-10"
-                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                  />
-                )}
-              </Link>
-            );
-          })}
+                  <motion.span
+                    className={`inline-flex items-center justify-center px-3.5 py-1.5 text-sm font-medium rounded-full transition-colors ${
+                      isActive
+                        ? 'text-[#1D4ED8]'
+                        : 'text-[#6B7280] hover:text-[#111827]'
+                    }`}
+                    whileHover={{ y: -1, scale: 1.02 }}
+                    transition={{ duration: 0.18, ease: 'easeOut' }}
+                  >
+                    {link.name}
+                  </motion.span>
+                  {isActive && (
+                    <motion.div
+                      layoutId="navbar-indicator"
+                      className="absolute inset-0 rounded-full bg-white shadow-[0_10px_25px_rgba(37,99,235,0.22)] -z-10"
+                      transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                    />
+                  )}
+                </Link>
+              );
+            })}
+          </div>
+
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="rounded-full w-10 h-10 p-0 hover:bg-slate-100 flex items-center justify-center"
+              >
+                <Languages className="w-5 h-5 text-[#6B7280]" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-40 bg-white/95 backdrop-blur-md">
+              {languages.map((lang) => (
+                <DropdownMenuItem
+                  key={lang.code}
+                  onSelect={() => changeLanguage(lang.code)}
+                  className={`flex items-center gap-3 cursor-pointer py-2 px-3 transition-colors ${
+                    i18n.language?.startsWith(lang.code) ? 'bg-blue-50 text-blue-600' : 'hover:bg-slate-50'
+                  }`}
+                >
+                  <span className="text-lg">{lang.flag}</span>
+                  <span className="font-medium text-sm">{lang.name}</span>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
     </motion.nav>

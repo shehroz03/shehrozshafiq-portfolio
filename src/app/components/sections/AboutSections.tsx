@@ -1,111 +1,114 @@
 import { motion } from 'motion/react';
 import { Code2, Database, Smartphone, Bot, Award, Briefcase } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { fadeInUpSmall, staggerContainer, staggerItem } from '../../utils/animations';
 
-const skills = [
-  { name: 'React / Next.js', level: 'Advanced', icon: Code2, color: 'from-blue-500 to-blue-600' },
-  { name: 'Node.js / Express', level: 'Intermediate to Advanced', icon: Database, color: 'from-green-500 to-green-600' },
-  { name: 'Flutter / Dart', level: 'Advanced', icon: Smartphone, color: 'from-purple-500 to-purple-600' },
-  { name: 'Python / Automation', level: 'Advanced', icon: Bot, color: 'from-orange-500 to-orange-600' },
-];
-
-const timeline = [
-  {
-    year: 'Jan 2023 - Present',
-    title: 'Freelance Full-Stack Developer',
-    organization: 'Upwork & Fiverr',
-    description: (
-      <ul className="list-disc list-outside ml-4 space-y-1">
-        <li>10+ web & mobile projects delivered for international clients.</li>
-        <li>Built apps with MERN, React Native, and Flutter.</li>
-        <li>Improved app load time by up to 35%.</li>
-        <li>Integrated Stripe for secure online payments.</li>
-      </ul>
-    ),
-  },
-  {
-    year: 'Jun 2024 - Jan 2026',
-    title: 'Data Systems Engineer',
-    organization: 'Corporate Website Solutions',
-    description: (
-      <ul className="list-disc list-outside ml-4 space-y-1">
-        <li>Scraped 10,000+ records per week using Python.</li>
-        <li>Automated data collection and saved 60% manual work.</li>
-        <li>Cleaned and organized large datasets for reporting.</li>
-        <li>Helped maintain reliable data pipelines for internal tools.</li>
-      </ul>
-    ),
-  },
-  {
-    year: 'Oct 2025 - Feb 2026',
-    title: 'Full-Stack Developer (ScholarIQ FYP)',
-    organization: 'The University of Lahore',
-    description: (
-      <ul className="list-disc list-outside ml-4 space-y-1">
-        <li>Built React, Python, SQLite based scholarship assistant.</li>
-        <li>Platform that collects student data and recommends suitable scholarships.</li>
-        <li>Includes an AI consultant chatbot and direct application links.</li>
-      </ul>
-    ),
-  },
-  {
-    year: '2022 - 2026',
-    title: 'BSCS',
-    organization: 'The University of Lahore, Lahore, Pakistan',
-    description: 'Focusing on software engineering, algorithms, and modern web technologies.',
-  },
-];
-
-const expertise = [
-  {
-    title: 'Frontend',
-    icon: Code2,
-    skills: [
-      { name: 'React', description: '' },
-      { name: 'Next.js', description: '' },
-      { name: 'TypeScript', description: '' },
-      { name: 'Tailwind CSS', description: '' },
-      { name: 'Motion', description: '' }
-    ],
-    color: 'from-blue-500 to-blue-600',
-  },
-  {
-    title: 'Mobile',
-    icon: Smartphone,
-    skills: [
-      { name: 'Flutter', description: '' },
-      { name: 'React Native', description: '' },
-      { name: 'Dart', description: '' }
-    ],
-    color: 'from-purple-500 to-purple-600',
-  },
-  {
-    title: 'Backend & Databases',
-    icon: Database,
-    skills: [
-      { name: 'Node.js', description: '' },
-      { name: 'Python', description: '' },
-      { name: 'MongoDB', description: '' },
-      { name: 'PostgreSQL', description: '' },
-      { name: 'REST APIs', description: '' }
-    ],
-    color: 'from-green-500 to-green-600',
-  },
-  {
-    title: 'Tools',
-    icon: Bot,
-    skills: [
-      { name: 'Stripe', description: 'Payment integration' },
-      { name: 'Web Scraping', description: 'Python, Playwright, Puppeteer' },
-      { name: 'Python (Web Scraping & Automation)', description: '' },
-      { name: 'Git & GitHub Actions', description: '' },
-      { name: 'Vercel & Firebase', description: '' }
-    ],
-    color: 'from-orange-500 to-orange-600',
-  },
-];
-
 export function AboutSections() {
+  const { t } = useTranslation();
+
+  const skills = [
+    { name: t('skills.react'), level: t('skills.advanced'), icon: Code2, color: 'from-blue-500 to-blue-600' },
+    { name: t('skills.node'), level: t('skills.intermediate_advanced'), icon: Database, color: 'from-green-500 to-green-600' },
+    { name: t('skills.flutter'), level: t('skills.advanced'), icon: Smartphone, color: 'from-purple-500 to-purple-600' },
+    { name: t('skills.python'), level: t('skills.advanced'), icon: Bot, color: 'from-orange-500 to-orange-600' },
+  ];
+
+  const timeline = [
+    {
+      year: 'Jan 2023 - Present',
+      title: t('timeline.freelance.title'),
+      organization: 'Upwork & Fiverr',
+      description: (
+        <ul className="list-disc list-outside ml-4 space-y-1">
+          <li>{t('timeline.freelance.item1')}</li>
+          <li>{t('timeline.freelance.item2')}</li>
+          <li>{t('timeline.freelance.item3')}</li>
+          <li>{t('timeline.freelance.item4')}</li>
+        </ul>
+      ),
+    },
+    {
+      year: 'Jun 2024 - Jan 2026',
+      title: t('timeline.data_engineer.title'),
+      organization: 'Corporate Website Solutions',
+      description: (
+        <ul className="list-disc list-outside ml-4 space-y-1">
+          <li>{t('timeline.data_engineer.item1')}</li>
+          <li>{t('timeline.data_engineer.item2')}</li>
+          <li>{t('timeline.data_engineer.item3')}</li>
+          <li>{t('timeline.data_engineer.item4')}</li>
+        </ul>
+      ),
+    },
+    {
+      year: 'Oct 2025 - Feb 2026',
+      title: t('timeline.scholar_iq.title'),
+      organization: 'The University of Lahore',
+      description: (
+        <ul className="list-disc list-outside ml-4 space-y-1">
+          <li>{t('timeline.scholar_iq.item1')}</li>
+          <li>{t('timeline.scholar_iq.item2')}</li>
+          <li>{t('timeline.scholar_iq.item3')}</li>
+        </ul>
+      ),
+    },
+    {
+      year: '2022 - 2026',
+      title: 'BSCS',
+      organization: 'The University of Lahore, Lahore, Pakistan',
+      description: t('timeline.bscs.description'),
+    },
+  ];
+
+  const expertise = [
+    {
+      title: t('expertise.frontend.title'),
+      icon: Code2,
+      skills: [
+        { name: 'React', description: '' },
+        { name: 'Next.js', description: '' },
+        { name: 'TypeScript', description: '' },
+        { name: 'Tailwind CSS', description: '' },
+        { name: 'Motion', description: '' }
+      ],
+      color: 'from-blue-500 to-blue-600',
+    },
+    {
+      title: t('expertise.mobile.title'),
+      icon: Smartphone,
+      skills: [
+        { name: 'Flutter', description: '' },
+        { name: 'React Native', description: '' },
+        { name: 'Dart', description: '' }
+      ],
+      color: 'from-purple-500 to-purple-600',
+    },
+    {
+      title: t('expertise.backend.title'),
+      icon: Database,
+      skills: [
+        { name: 'Node.js', description: '' },
+        { name: 'Python', description: '' },
+        { name: 'MongoDB', description: '' },
+        { name: 'PostgreSQL', description: '' },
+        { name: 'REST APIs', description: '' }
+      ],
+      color: 'from-green-500 to-green-600',
+    },
+    {
+      title: t('expertise.tools.title'),
+      icon: Bot,
+      skills: [
+        { name: 'Stripe', description: t('expertise.tools.stripe_desc') },
+        { name: t('expertise.tools.scraping'), description: 'Python, Playwright, Puppeteer' },
+        { name: t('expertise.tools.automation'), description: '' },
+        { name: 'Git & GitHub Actions', description: '' },
+        { name: 'Vercel & Firebase', description: '' }
+      ],
+      color: 'from-orange-500 to-orange-600',
+    },
+  ];
+
   return (
     <>
       {/* Skills Section */}
@@ -118,9 +121,9 @@ export function AboutSections() {
             variants={fadeInUpSmall}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-[#2E2E2E] mb-4">Technical Skills</h2>
+            <h2 className="text-4xl font-bold text-[#2E2E2E] mb-4">{t('skills.title')}</h2>
             <p className="text-lg text-[#6B7280]">
-              Proficiency across the full development stack
+              {t('skills.subtitle')}
             </p>
           </motion.div>
 
@@ -173,7 +176,7 @@ export function AboutSections() {
             viewport={{ once: true }}
             className="text-center mt-8 text-xs text-[#6B7280] italic"
           >
-            Based on 3+ years of hands-on experience building web and mobile apps.
+            {t('skills.experience_note')}
           </motion.p>
         </div>
       </section>
@@ -188,9 +191,9 @@ export function AboutSections() {
             variants={fadeInUpSmall}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-[#2E2E2E] mb-4">Experience & Education</h2>
+            <h2 className="text-4xl font-bold text-[#2E2E2E] mb-4">{t('timeline.title')}</h2>
             <p className="text-lg text-[#6B7280]">
-              My professional journey
+              {t('timeline.subtitle')}
             </p>
           </motion.div>
 
@@ -234,7 +237,7 @@ export function AboutSections() {
                         </span>
                       </div>
                       <p className="text-[#4A90E2] font-semibold mb-2">{item.organization}</p>
-                      <p className="text-[#6B7280]">{item.description}</p>
+                      <div className="text-[#6B7280]">{item.description}</div>
                     </div>
                   </div>
                 </div>
@@ -254,9 +257,9 @@ export function AboutSections() {
             variants={fadeInUpSmall}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold text-[#2E2E2E] mb-4">Areas of Expertise</h2>
+            <h2 className="text-4xl font-bold text-[#2E2E2E] mb-4">{t('expertise.title')}</h2>
             <p className="text-lg text-[#6B7280]">
-              Technologies and tools I work with daily
+              {t('expertise.subtitle')}
             </p>
           </motion.div>
 

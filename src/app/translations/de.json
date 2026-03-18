@@ -1,0 +1,145 @@
+{
+  "navbar": {
+    "home": "Startseite",
+    "projects": "Projekte",
+    "about": "Über mich",
+    "contact": "Kontakt",
+    "full_name": "Shehroz Shafiq – Portfolio"
+  },
+  "hero": {
+    "availability": "Verfügbar für neue Projekte",
+    "first_name": "Shehroz",
+    "last_name": "Shafiq",
+    "subtitle": "Full-Stack-Entwickler | MERN, React Native & Flutter",
+    "description": "Ich baue Web- und Mobil-Apps für Startups und kleine Unternehmen mit React, Next.js, React Native und Firebase.",
+    "get_in_touch": "Kontakt aufnehmen",
+    "view_my_work": "Meine Arbeit ansehen",
+    "resume": "Lebenslauf",
+    "social_proof": "Vertrauen von Kunden auf Freelance-Plattformen"
+  },
+  "stats": {
+    "years_experience": "Jahre Erfahrung",
+    "projects_completed": "Abgeschlossene Projekte",
+    "happy_clients": "Zufriedene Kunden",
+    "client_satisfaction": "Kundenzufriedenheit"
+  },
+  "projects": {
+    "featured_projects": "Ausgewählte Projekte",
+    "tagline": "Reale Anwendungen und Automatisierungslösungen, gebaut mit modernen Technologien",
+    "view_all_projects": "Alle Projekte anzeigen",
+    "title": "Ausgewählte Projekte",
+    "subtitle": "Eine kuratierte Sammlung von Full-Stack-Anwendungen, mobilen Plattformen und Automatisierungslösungen, die Fachwissen in modernen Webtechnologien und Data Engineering demonstrieren.",
+    "all": "Alle Projekte",
+    "web": "Web-Anwendungen",
+    "mobile": "Mobile Apps",
+    "scraping": "Automatisierung & Scraping",
+    "no_projects": "Noch keine Projekte in dieser Kategorie.",
+    "view_case_study": "Fallstudie ansehen",
+    "loading": "Projekte werden geladen...",
+    "ongoing": "Laufendes Projekt",
+    "view_source": "Quellcode anzeigen",
+    "visit_live": "Live-Seite besuchen",
+    "private_note": "Privates Projekt – Code und Demo auf Anfrage verfügbar",
+    "context_problem": "Kontext & Problem",
+    "solution_features": "Lösung & Funktionen",
+    "tech_stack": "Tech-Stack",
+    "impact_outcomes": "Auswirkungen & Ergebnisse",
+    "video_demo": "Video-Demo"
+  },
+  "contact": {
+    "title": "Kontakt Aufnehmen",
+    "subtitle": "Haben Sie ein Projekt im Sinn oder möchten Sie zusammenarbeiten? Ich würde gerne von Ihnen hören. Füllen Sie das folgende Formular aus und ich werde mich so schnell wie möglich bei Ihnen melden.",
+    "send_title": "Schreiben Sie mir eine Nachricht",
+    "name_label": "Ihr Name *",
+    "email_label": "E-Mail-Adresse *",
+    "message_label": "Ihre Nachricht *",
+    "message_placeholder": "Erzählen Sie mir von Ihrem Projekt...",
+    "sending": "Wird gesendet...",
+    "send_btn": "Nachricht senden",
+    "success": "Danke! Ihre Nachricht wurde gesendet.",
+    "error": "Etwas ist schief gelaufen. Bitte versuchen Sie es erneut.",
+    "email_sidebar": "E-Mail",
+    "location_sidebar": "Standort",
+    "social_sidebar": "In sozialen Netzwerken vernetzen",
+    "available_title": "Verfügbar für Arbeit",
+    "available_desc": "Ich bin derzeit offen für Freelance-Projekte und Vollzeitmöglichkeiten."
+  },
+  "cta": {
+    "ready_to_build": "Bereit, Ihr nächstes Projekt zu bauen?",
+    "project_in_mind": "Haben Sie ein Projekt im Sinn? Schreiben Sie mir eine Nachricht und ich werde innerhalb von 24 Stunden antworten.",
+    "contact_me": "Kontaktiere mich",
+    "download_cv": "Lebenslauf herunterladen",
+    "available_for_work": "Verfügbar für Arbeit"
+  },
+  "about": {
+    "about_me": "Über mich",
+    "shehroz_shafiq": "Shehroz Shafiq",
+    "subtitle": "Full-Stack-Entwickler | MERN, React Native & Flutter",
+    "description": "Ich bin ein Full-Stack-Entwickler, der MERN, React Native und Flutter nutzt, um Web- und Mobil-Apps für Startups und kleine Unternehmen zu erstellen. Mein Fokus liegt auf cleanem UI, reibungsloser User Experience und einer zuverlässigen Backend-Architektur. In letzter Zeit habe ich automatisierungslastige, datengesteuerte Dashboards und Admin-Panels entwickelt, die Teams helfen, Zeit zu sparen und bessere Entscheidungen zu treffen."
+  },
+  "skills": {
+    "title": "Technische Fähigkeiten",
+    "subtitle": "Kompetenz im gesamten Development-Stack",
+    "react": "React / Next.js",
+    "node": "Node.js / Express",
+    "flutter": "Flutter / Dart",
+    "python": "Python / Automatisierung",
+    "advanced": "Fortgeschritten",
+    "intermediate_advanced": "Fortgeschritten bis Expertenniveau",
+    "experience_note": "Basierend auf über 3 Jahren praktischer Erfahrung im Aufbau von Web- und Mobil-Apps."
+  },
+  "timeline": {
+    "title": "Erfahrung & Ausbildung",
+    "subtitle": "Mein beruflicher Werdegang",
+    "freelance": {
+      "title": "Freiberuflicher Full-Stack-Entwickler",
+      "item1": "Über 10 Web- und Mobilprojekte für internationale Kunden geliefert.",
+      "item2": "Apps gebaut mit MERN, React Native und Flutter.",
+      "item3": "App-Ladezeit um bis zu 35 % verbessert.",
+      "item4": "Stripe-Integration für sichere Online-Zahlungen."
+    },
+    "data_engineer": {
+      "title": "Data Systems Engineer",
+      "item1": "Über 10.000 Datensätze pro Woche mit Python gesammelt.",
+      "item2": "Datenerfassung automatisiert und 60 % manuelle Arbeit gespart.",
+      "item3": "Große Datensätze für Berichte bereinigt und organisiert.",
+      "item4": "Zuverlässige Datenpipelines für interne Tools gewartet."
+    },
+    "scholar_iq": {
+      "title": "Full-Stack-Entwickler (ScholarIQ FYP)",
+      "item1": "Stipendien-Assistent auf Basis von React, Python und SQLite gebaut.",
+      "item2": "Plattform, die Studentendaten sammelt und passende Stipendien empfiehlt.",
+      "item3": "Enthält einen KI-Chatbot-Berater und direkte Bewerbungslinks."
+    },
+    "bscs": {
+      "description": "Fokus auf Software-Engineering, Algorithmen und moderne Webtechnologien."
+    }
+  },
+  "expertise": {
+    "title": "Fachgebiete",
+    "subtitle": "Technologien und Tools, mit denen ich täglich arbeite",
+    "frontend": {
+      "title": "Frontend"
+    },
+    "mobile": {
+      "title": "Mobil"
+    },
+    "backend": {
+      "title": "Backend & Datenbanken"
+    },
+    "tools": {
+      "title": "Tools",
+      "stripe_desc": "Zahlungsintegration",
+      "scraping": "Web-Scraping",
+      "automation": "Python (Web-Scraping & Automatisierung)"
+    }
+  },
+  "footer": {
+    "brand_description": "Aufbau skalierbarer Web- und Mobilanwendungen mit modernen Technologien.",
+    "quick_links": "Schnelllinks",
+    "connect": "Vernetzen",
+    "available_freelance": "Verfügbar für Freelance-Möglichkeiten",
+    "copyright": "Alle Rechte vorbehalten.",
+    "built_with": "Gebaut mit React, TypeScript & Tailwind CSS"
+  }
+}

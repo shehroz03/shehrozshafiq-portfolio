@@ -1,0 +1,145 @@
+{
+  "navbar": {
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About",
+    "contact": "Contact",
+    "full_name": "Shehroz Shafiq – Portfolio"
+  },
+  "hero": {
+    "availability": "Available for new projects",
+    "first_name": "Shehroz",
+    "last_name": "Shafiq",
+    "subtitle": "Full-Stack Developer | MERN, React Native & Flutter",
+    "description": "I build web and mobile apps for startups and small businesses using React, Next.js, React Native and Firebase.",
+    "get_in_touch": "Get in Touch",
+    "view_my_work": "View My Work",
+    "resume": "Resume",
+    "social_proof": "Trusted by clients on freelance platforms"
+  },
+  "stats": {
+    "years_experience": "Years Experience",
+    "projects_completed": "Projects Completed",
+    "happy_clients": "Happy Clients",
+    "client_satisfaction": "Client Satisfaction"
+  },
+  "cta": {
+    "ready_to_build": "Ready to build your next project?",
+    "project_in_mind": "Have a project in mind? Message me and I'll reply within 24 hours.",
+    "contact_me": "Contact Me",
+    "download_cv": "Download CV",
+    "available_for_work": "Available for work"
+  },
+  "about": {
+    "about_me": "About Me",
+    "shehroz_shafiq": "Shehroz Shafiq",
+    "subtitle": "Full-Stack Developer | MERN, React Native & Flutter",
+    "description": "I’m a full-stack developer using MERN, React Native and Flutter to build web and mobile apps for startups and small businesses. I focus on clean UI, smooth user experience, and reliable backend architecture. Recently, I’ve been building automation-heavy, data-driven dashboards and admin panels that help teams save time and make better decisions."
+  },
+  "skills": {
+    "title": "Technical Skills",
+    "subtitle": "Proficiency across the full development stack",
+    "react": "React / Next.js",
+    "node": "Node.js / Express",
+    "flutter": "Flutter / Dart",
+    "python": "Python / Automation",
+    "advanced": "Advanced",
+    "intermediate_advanced": "Intermediate to Advanced",
+    "experience_note": "Based on 3+ years of hands-on experience building web and mobile apps."
+  },
+  "timeline": {
+    "title": "Experience & Education",
+    "subtitle": "My professional journey",
+    "freelance": {
+      "title": "Freelance Full-Stack Developer",
+      "item1": "10+ web & mobile projects delivered for international clients.",
+      "item2": "Built apps with MERN, React Native, and Flutter.",
+      "item3": "Improved app load time by up to 35%.",
+      "item4": "Integrated Stripe for secure online payments."
+    },
+    "data_engineer": {
+      "title": "Data Systems Engineer",
+      "item1": "Scraped 10,000+ records per week using Python.",
+      "item2": "Automated data collection and saved 60% manual work.",
+      "item3": "Cleaned and organized large datasets for reporting.",
+      "item4": "Helped maintain reliable data pipelines for internal tools."
+    },
+    "scholar_iq": {
+      "title": "Full-Stack Developer (ScholarIQ FYP)",
+      "item1": "Built React, Python, SQLite based scholarship assistant.",
+      "item2": "Platform that collects student data and recommends suitable scholarships.",
+      "item3": "Includes an AI consultant chatbot and direct application links."
+    },
+    "bscs": {
+      "description": "Focusing on software engineering, algorithms, and modern web technologies."
+    }
+  },
+  "expertise": {
+    "title": "Areas of Expertise",
+    "subtitle": "Technologies and tools I work with daily",
+    "frontend": {
+      "title": "Frontend"
+    },
+    "mobile": {
+      "title": "Mobile"
+    },
+    "backend": {
+      "title": "Backend & Databases"
+    },
+    "tools": {
+      "title": "Tools",
+      "stripe_desc": "Payment integration",
+      "scraping": "Web Scraping",
+      "automation": "Python (Web Scraping & Automation)"
+    }
+  },
+  "projects": {
+    "featured_projects": "Featured Projects",
+    "tagline": "Real-world applications and automation solutions built with modern technologies",
+    "view_all_projects": "View All Projects",
+    "title": "Featured Projects",
+    "subtitle": "A curated collection of full-stack applications, mobile platforms, and automation solutions showcasing expertise in modern web technologies and data engineering.",
+    "all": "All Projects",
+    "web": "Web Applications",
+    "mobile": "Mobile Apps",
+    "scraping": "Automation & Scraping",
+    "no_projects": "No projects in this category yet.",
+    "view_case_study": "View Case Study",
+    "loading": "Loading projects...",
+    "ongoing": "Ongoing Project",
+    "view_source": "View Source Code",
+    "visit_live": "Visit Live Site",
+    "private_note": "Private project - code and demo available upon request",
+    "context_problem": "Context & Problem",
+    "solution_features": "Solution & Features",
+    "tech_stack": "Tech Stack",
+    "impact_outcomes": "Impact & Outcomes",
+    "video_demo": "Video Demo"
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Have a project in mind or want to collaborate? I'd love to hear from you. Fill out the form below and I'll get back to you as soon as possible.",
+    "send_title": "Send Me a Message",
+    "name_label": "Your Name *",
+    "email_label": "Email Address *",
+    "message_label": "Your Message *",
+    "message_placeholder": "Tell me about your project...",
+    "sending": "Sending...",
+    "send_btn": "Send Message",
+    "success": "Thanks! Your message has been sent.",
+    "error": "Something went wrong. Please try again.",
+    "email_sidebar": "Email",
+    "location_sidebar": "Location",
+    "social_sidebar": "Connect on Social",
+    "available_title": "Available for Work",
+    "available_desc": "I'm currently open to freelance projects and full-time opportunities."
+  },
+  "footer": {
+    "brand_description": "Building scalable web and mobile applications with modern technologies.",
+    "quick_links": "Quick Links",
+    "connect": "Connect",
+    "available_freelance": "Available for freelance opportunities",
+    "copyright": "All rights reserved.",
+    "built_with": "Built with React, TypeScript & Tailwind CSS"
+  }
+}

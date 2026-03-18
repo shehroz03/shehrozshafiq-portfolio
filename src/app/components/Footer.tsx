@@ -1,17 +1,19 @@
 import { Link } from 'react-router';
 import { motion } from 'motion/react';
+import { useTranslation } from 'react-i18next';
 import { staggerContainer, staggerItem } from '../utils/animations';
 import { contactInfo, socialLinks } from '../data/contact';
 
 export function Footer() {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   const links = [
-    { label: 'Home', to: '/' },
-    { label: 'Projects', to: '/projects' },
-    { label: 'About', to: '/about' },
-    { label: 'Contact', to: '/contact' },
-    { label: 'Admin', to: '/admin' },
+    { label: t('navbar.home'), to: '/' },
+    { label: t('navbar.projects'), to: '/projects' },
+    { label: t('navbar.about'), to: '/about' },
+    { label: t('navbar.contact'), to: '/contact' },
+    { label: t('footer.admin', 'Admin'), to: '/admin' },
   ];
 
   return (
@@ -35,11 +37,11 @@ export function Footer() {
               </div>
               <div>
                 <h3 className="font-bold text-[#2E2E2E]">Shehroz Shafiq</h3>
-                <p className="text-xs text-[#6B7280]">Full-Stack Developer</p>
+                <p className="text-xs text-[#6B7280]">{t('hero.subtitle')}</p>
               </div>
             </div>
             <p className="text-sm text-[#6B7280] max-w-xs">
-              Building scalable web and mobile applications with modern technologies.
+              {t('footer.brand_description')}
             </p>
           </motion.div>
 
@@ -48,7 +50,7 @@ export function Footer() {
             variants={staggerItem}
             className="space-y-4"
           >
-            <h4 className="font-semibold text-[#2E2E2E] text-sm">Quick Links</h4>
+            <h4 className="font-semibold text-[#2E2E2E] text-sm">{t('footer.quick_links')}</h4>
             <nav className="flex flex-col space-y-2">
               {links.map((link) => (
                 <Link
@@ -67,7 +69,7 @@ export function Footer() {
             variants={staggerItem}
             className="space-y-4"
           >
-            <h4 className="font-semibold text-[#2E2E2E] text-sm">Connect</h4>
+            <h4 className="font-semibold text-[#2E2E2E] text-sm">{t('footer.connect')}</h4>
             <div className="flex gap-3">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
@@ -89,7 +91,7 @@ export function Footer() {
               })}
             </div>
             <p className="text-xs text-[#6B7280] mt-4">
-              Available for freelance opportunities
+              {t('footer.available_freelance')}
             </p>
           </motion.div>
         </motion.div>
@@ -104,10 +106,10 @@ export function Footer() {
         >
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-[#6B7280]">
-              © {currentYear} Shehroz Shafiq. All rights reserved.
+              © {currentYear} Shehroz Shafiq. {t('footer.copyright')}
             </p>
             <p className="text-xs text-[#6B7280]">
-              Built with React, TypeScript & Tailwind CSS
+              {t('footer.built_with')}
             </p>
           </div>
         </motion.div>

@@ -1,0 +1,145 @@
+{
+  "navbar": {
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "about": "Sobre mí",
+    "contact": "Contacto",
+    "full_name": "Shehroz Shafiq – Portfolio"
+  },
+  "hero": {
+    "availability": "Disponible para nuevos proyectos",
+    "first_name": "Shehroz",
+    "last_name": "Shafiq",
+    "subtitle": "Desarrollador Full-Stack | MERN, React Native y Flutter",
+    "description": "Creo aplicaciones web y móviles para startups y pequeñas empresas utilizando React, Next.js, React Native y Firebase.",
+    "get_in_touch": "Ponerse en contacto",
+    "view_my_work": "Ver mi trabajo",
+    "resume": "Currículum",
+    "social_proof": "Con la confianza de clientes en plataformas freelance"
+  },
+  "stats": {
+    "years_experience": "Años de Experiencia",
+    "projects_completed": "Proyectos Completados",
+    "happy_clients": "Clientes Felices",
+    "client_satisfaction": "Satisfacción del Cliente"
+  },
+  "cta": {
+    "ready_to_build": "¿Listo para construir tu próximo proyecto?",
+    "project_in_mind": "¿Tienes un proyecto en mente? Envíame un mensaje y te responderé en 24 horas.",
+    "contact_me": "Contáctame",
+    "download_cv": "Descargar CV",
+    "available_for_work": "Disponible para trabajar"
+  },
+  "about": {
+    "about_me": "Sobre mí",
+    "shehroz_shafiq": "Shehroz Shafiq",
+    "subtitle": "Desarrollador Full-Stack | MERN, React Native y Flutter",
+    "description": "Soy un desarrollador full-stack que utiliza MERN, React Native y Flutter para crear aplicaciones web y móviles para startups y pequeñas empresas. Me enfoco en interfaces limpias, una experiencia de usuario fluida y una arquitectura de backend confiable. Recientemente, he estado creando paneles de administración y tableros basados en datos y altamente automatizados que ayudan a los equipos a ahorrar tiempo y tomar mejores decisiones."
+  },
+  "skills": {
+    "title": "Habilidades Técnicas",
+    "subtitle": "Competencia en todo el stack de desarrollo",
+    "react": "React / Next.js",
+    "node": "Node.js / Express",
+    "flutter": "Flutter / Dart",
+    "python": "Python / Automatización",
+    "advanced": "Avanzado",
+    "intermediate_advanced": "Intermedio a Avanzado",
+    "experience_note": "Basado en más de 3 años de experiencia práctica en la creación de aplicaciones web y móviles."
+  },
+  "timeline": {
+    "title": "Experiencia y Educación",
+    "subtitle": "Mi trayectoria profesional",
+    "freelance": {
+      "title": "Desarrollador Full-Stack Freelance",
+      "item1": "Más de 10 proyectos web y móviles entregados para clientes internacionales.",
+      "item2": "Aplicaciones creadas con MERN, React Native y Flutter.",
+      "item3": "Mejora del tiempo de carga de la aplicación hasta en un 35%.",
+      "item4": "Integración de Stripe para pagos en línea seguros."
+    },
+    "data_engineer": {
+      "title": "Ingeniero de Sistemas de Datos",
+      "item1": "Más de 10.000 registros recopilados por semana usando Python.",
+      "item2": "Automatización de la recopilación de datos y ahorro del 60% del trabajo manual.",
+      "item3": "Datasets grandes limpiados y organizados para informes.",
+      "item4": "Mantenimiento de tuberías de datos confiables para herramientas internas."
+    },
+    "scholar_iq": {
+      "title": "Desarrollador Full-Stack (ScholarIQ FYP)",
+      "item1": "Asistente de becas basado en React, Python y SQLite.",
+      "item2": "Plataforma que recopila datos de estudiantes y recomienda becas adecuadas.",
+      "item3": "Incluye un chatbot consultor de IA y enlaces de solicitud directa."
+    },
+    "bscs": {
+      "description": "Centrado en ingeniería de software, algoritmos y tecnologías web modernas."
+    }
+  },
+  "expertise": {
+    "title": "Áreas de Experiencia",
+    "subtitle": "Tecnologías y herramientas con las que trabajo a diario",
+    "frontend": {
+      "title": "Frontend"
+    },
+    "mobile": {
+      "title": "Móvil"
+    },
+    "backend": {
+      "title": "Backend y Bases de Datos"
+    },
+    "tools": {
+      "title": "Herramientas",
+      "stripe_desc": "Integración de pagos",
+      "scraping": "Web Scraping",
+      "automation": "Python (Web Scraping y Automatización)"
+    }
+  },
+  "projects": {
+    "featured_projects": "Proyectos Destacados",
+    "tagline": "Aplicaciones del mundo real y soluciones de automatización creadas con tecnologías modernas",
+    "view_all_projects": "Ver todos los proyectos",
+    "title": "Proyectos Destacados",
+    "subtitle": "Una colección seleccionada de aplicaciones de stack completo, plataformas móviles y soluciones de automatización que muestran experiencia en tecnologías web modernas e ingeniería de datos.",
+    "all": "Todos los Proyectos",
+    "web": "Aplicaciones Web",
+    "mobile": "Apps Móviles",
+    "scraping": "Automatización y Scraping",
+    "no_projects": "Aún no hay proyectos en esta categoría.",
+    "view_case_study": "Ver Estudio de Caso",
+    "loading": "Cargando proyectos...",
+    "ongoing": "Proyecto en Curso",
+    "view_source": "Ver Código Fuente",
+    "visit_live": "Visitar Sitio en Vivo",
+    "private_note": "Proyecto privado: código y demostración disponibles a pedido",
+    "context_problem": "Contexto y Problema",
+    "solution_features": "Solución y Características",
+    "tech_stack": "Stack Tecnológico",
+    "impact_outcomes": "Impacto y Resultados",
+    "video_demo": "Demostración en Video"
+  },
+  "contact": {
+    "title": "Ponerse en Contacto",
+    "subtitle": "¿Tienes un proyecto en mente o quieres colaborar? Me encantaría saber de ti. Completa el siguiente formulario y me pondré en contacto contigo lo antes posible.",
+    "send_title": "Enviarme un Mensaje",
+    "name_label": "Tu Nombre *",
+    "email_label": "Correo Electrónico *",
+    "message_label": "Tu Mensaje *",
+    "message_placeholder": "Cuéntame sobre tu proyecto...",
+    "sending": "Enviando...",
+    "send_btn": "Enviar Mensaje",
+    "success": "¡Gracias! Tu mensaje ha sido enviado.",
+    "error": "Algo salió mal. Por favor, inténtalo de nuevo.",
+    "email_sidebar": "Correo Electrónico",
+    "location_sidebar": "Ubicación",
+    "social_sidebar": "Conectar en Redes",
+    "available_title": "Disponible para Trabajar",
+    "available_desc": "Actualmente estoy abierto a proyectos freelance y oportunidades de tiempo completo."
+  },
+  "footer": {
+    "brand_description": "Desarrollando aplicaciones web y móviles escalables con tecnologías modernas.",
+    "quick_links": "Enlaces Rápidos",
+    "connect": "Conectar",
+    "available_freelance": "Disponible para oportunidades freelance",
+    "copyright": "Todos los derechos reservados.",
+    "built_with": "Desarrollado con React, TypeScript y Tailwind CSS"
+  }
+}

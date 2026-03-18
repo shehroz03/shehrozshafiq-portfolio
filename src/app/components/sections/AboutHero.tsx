@@ -1,6 +1,8 @@
 import { motion } from 'motion/react';
+import { useTranslation } from 'react-i18next';
 
 export function AboutHero() {
+  const { t } = useTranslation();
   return (
     <section className="py-20 bg-gradient-to-br from-blue-50/50 to-transparent">
       <div className="max-w-7xl mx-auto px-6">
@@ -13,16 +15,16 @@ export function AboutHero() {
             className="space-y-6"
           >
             <h1 className="text-5xl lg:text-6xl font-bold text-[#2E2E2E]">
-              About Me
+              {t('about.about_me')}
             </h1>
             <h2 className="text-2xl lg:text-3xl text-[#4A90E2] font-semibold">
-              Shehroz Shafiq
+              {t('about.shehroz_shafiq')}
             </h2>
             <p className="text-xl lg:text-2xl font-medium text-[#4B5563] tracking-wide">
-              Full-Stack Developer | MERN, React Native & Flutter
+              {t('about.subtitle')}
             </p>
             <p className="text-lg text-[#6B7280] leading-relaxed">
-              I’m a full-stack developer using MERN, React Native and Flutter to build web and mobile apps for startups and small businesses. I focus on clean UI, smooth user experience, and reliable backend architecture. Recently, I’ve been building automation-heavy, data-driven dashboards and admin panels that help teams save time and make better decisions.
+              {t('about.description')}
             </p>
           </motion.div>
 

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
+import { useTranslation } from 'react-i18next';
 import { Mail, MapPin, Github, Linkedin, Send } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
@@ -10,16 +11,17 @@ import { api } from '../lib/supabase';
 import { contactInfo, socialLinks } from '../data/contact';
 
 export function Contact() {
+  const { t } = useTranslation();
   const contactCards = [
     {
       icon: Mail,
-      label: 'Email',
+      label: t('contact.email_sidebar'),
       value: contactInfo.email,
       href: `mailto:${contactInfo.email}`,
     },
     {
       icon: MapPin,
-      label: 'Location',
+      label: t('contact.location_sidebar'),
       value: contactInfo.location,
       href: null,
     },
@@ -87,11 +89,10 @@ export function Contact() {
               className="text-center max-w-3xl mx-auto"
             >
               <h1 className="text-5xl lg:text-6xl font-bold text-[#2E2E2E] mb-6">
-                Get In Touch
+                {t('contact.title')}
               </h1>
               <p className="text-lg text-[#6B7280]">
-                Have a project in mind or want to collaborate? I'd love to hear from you.
-                Fill out the form below and I'll get back to you as soon as possible.
+                {t('contact.subtitle')}
               </p>
             </motion.div>
           </div>
@@ -115,7 +116,7 @@ export function Contact() {
                     boxShadow: '0 8px 40px rgba(0, 0, 0, 0.08)',
                   }}
                 >
-                  <h2 className="text-3xl font-bold text-[#2E2E2E] mb-8">Send Me a Message</h2>
+                  <h2 className="text-3xl font-bold text-[#2E2E2E] mb-8">{t('contact.send_title')}</h2>
 
                   <form
                     onSubmit={handleSubmit}
@@ -127,7 +128,7 @@ export function Contact() {
                         htmlFor="name"
                         className="text-sm font-medium text-[#2E2E2E]"
                       >
-                        Your Name *
+                        {t('contact.name_label')}
                       </label>
                       <Input
                         id="name"
@@ -145,7 +146,7 @@ export function Contact() {
                         htmlFor="email"
                         className="text-sm font-medium text-[#2E2E2E]"
                       >
-                        Email Address *
+                        {t('contact.email_label')}
                       </label>
                       <Input
                         id="email"
@@ -163,12 +164,12 @@ export function Contact() {
                         htmlFor="message"
                         className="text-sm font-medium text-[#2E2E2E]"
                       >
-                        Your Message *
+                        {t('contact.message_label')}
                       </label>
                       <Textarea
                         id="message"
                         name="message"
-                        placeholder="Tell me about your project..."
+                        placeholder={t('contact.message_placeholder')}
                         rows={6}
                         required
                         className="bg-[#F7F7F7] border-gray-200 focus:border-[#4A90E2] focus:ring-[#4A90E2] resize-none transition-all"
@@ -296,7 +297,7 @@ export function Contact() {
                     boxShadow: '0 4px 20px rgba(0, 0, 0, 0.05)',
                   }}
                 >
-                  <h3 className="font-semibold text-[#2E2E2E] mb-4">Connect on Social</h3>
+                  <h3 className="font-semibold text-[#2E2E2E] mb-4">{t('contact.social_sidebar')}</h3>
                   <div className="flex gap-3">
                     {sidebarSocials.map((social) => {
                       const Icon = social.icon;
