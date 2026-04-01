@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router';
 import { motion } from 'motion/react';
 import { Code2, Languages } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { LogoText } from './LogoText';
 import {
@@ -14,6 +15,7 @@ import { Button } from './ui/button';
 export function Navbar() {
   const { t, i18n } = useTranslation();
   const location = useLocation();
+  const [visitorCount, setVisitorCount] = useState<number | null>(null);
   const isAdminRoute = location.pathname.startsWith('/admin');
 
   // Don't show navbar on admin routes
@@ -38,6 +40,38 @@ export function Navbar() {
     console.log('Changing language to:', code);
     i18n.changeLanguage(code);
   };
+
+  useEffect(() => {
+    let isUnmounted = false;
+
+    const updateVisitorCount = async () => {
+      const namespace = 'shehroz-shafiq-portfolio';
+      const key = 'total-visitors';
+      const sessionKey = 'portfolio_visit_counted_v1';
+      const shouldIncrement = !sessionStorage.getItem(sessionKey);
+      const endpoint = shouldIncrement
+        ? `https://api.countapi.xyz/hit/${namespace}/${key}`
+        : `https://api.countapi.xyz/get/${namespace}/${key}`;
+
+      try {
+        const response = await fetch(endpoint);
+        const data = await response.json();
+        if (!isUnmounted && typeof data?.value === 'number') {
+          setVisitorCount(data.value);
+        }
+        if (shouldIncrement) {
+          sessionStorage.setItem(sessionKey, 'true');
+        }
+      } catch (error) {
+        console.error('Visitor counter error:', error);
+      }
+    };
+
+    updateVisitorCount();
+    return () => {
+      isUnmounted = true;
+    };
+  }, []);
 
   return (
     <motion.nav
@@ -64,6 +98,16 @@ export function Navbar() {
 
         {/* Nav links & Language Switcher */}
         <div className="flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-[#1D4ED8] shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+            <span className="text-xs font-semibold">Visitors: {visitorCount ?? '...'}</span>
+          </div>
+
+          <div className="md:hidden flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-50 border border-blue-100 text-[#1D4ED8] shadow-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+            <span className="text-[11px] font-semibold">{visitorCount ?? '...'}</span>
+          </div>
+
           <div className="hidden sm:flex items-center gap-2 bg-slate-50/60 rounded-full px-1.5 py-1 border border-slate-200/60 shadow-inner">
             {links.map((link) => {
               const isActive = location.pathname === link.path;
