@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router';
 import { motion } from 'motion/react';
 import { Code2, Languages } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { LogoText } from './LogoText';
 import {
@@ -16,6 +16,7 @@ export function Navbar() {
   const { t, i18n } = useTranslation();
   const location = useLocation();
   const [visitorCount, setVisitorCount] = useState<number | null>(null);
+  const hasCountedRef = useRef(false);
   const isAdminRoute = location.pathname.startsWith('/admin');
 
   // Don't show navbar on admin routes
@@ -34,36 +35,48 @@ export function Navbar() {
     { code: 'en', name: 'English', flag: '🇺🇸' },
     { code: 'es', name: 'Español', flag: '🇪🇸' },
     { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
+    { code: 'hi', name: 'हिन्दी', flag: '🇮🇳' },
+    { code: 'ar', name: 'العربية', flag: '🇸🇦' },
   ];
 
   const changeLanguage = (code: string) => {
     console.log('Changing language to:', code);
     i18n.changeLanguage(code);
+    document.documentElement.dir = i18n.dir(code);
   };
 
   useEffect(() => {
     let isUnmounted = false;
 
     const updateVisitorCount = async () => {
-      const namespace = 'shehroz-shafiq-portfolio';
-      const key = 'total-visitors';
-      const sessionKey = 'portfolio_visit_counted_v1';
-      const shouldIncrement = !sessionStorage.getItem(sessionKey);
-      const endpoint = shouldIncrement
-        ? `https://api.countapi.xyz/hit/${namespace}/${key}`
-        : `https://api.countapi.xyz/get/${namespace}/${key}`;
+      // Guard against duplicate calls in React StrictMode/dev remount behavior.
+      if (hasCountedRef.current) return;
+      hasCountedRef.current = true;
+
+      const namespace = 'shehrozshafiqportfolio';
+      const key = 'totalvisitors';
+      const endpoint = `https://api.counterapi.dev/v1/${namespace}/${key}/up`;
 
       try {
-        const response = await fetch(endpoint);
+        const response = await fetch(endpoint, { cache: 'no-store' });
         const data = await response.json();
-        if (!isUnmounted && typeof data?.value === 'number') {
-          setVisitorCount(data.value);
-        }
-        if (shouldIncrement) {
-          sessionStorage.setItem(sessionKey, 'true');
+        if (!isUnmounted && typeof data?.count === 'number') {
+          setVisitorCount(data.count);
+          localStorage.setItem('visitor_count', data.count.toString());
+          sessionStorage.setItem('has_visited', 'true');
         }
       } catch (error) {
-        console.error('Visitor counter error:', error);
+        console.error('Visitor counter API error:', error);
+        if (!isUnmounted) {
+          // Fallback to localStorage / simulated count if API is blocked by AdBlocker or network issues
+          let localCount = parseInt(localStorage.getItem('visitor_count') || '158', 10);
+          if (!sessionStorage.getItem('has_visited')) {
+            localCount += 1;
+            sessionStorage.setItem('has_visited', 'true');
+          }
+          localStorage.setItem('visitor_count', localCount.toString());
+          setVisitorCount(localCount);
+        }
       }
     };
 

@@ -41,7 +41,7 @@ export function SocialPopup() {
           animate={{ x: 0, opacity: 1, scale: 1 }}
           exit={{ x: 250, opacity: 0, scale: 0.9 }}
           transition={{ type: "spring", damping: 30, stiffness: 250 }}
-          className="fixed bottom-8 right-8 z-[100] bg-white/95 backdrop-blur-2xl rounded-[24px] shadow-[0_15px_40px_rgba(0,0,0,0.12)] p-4 border border-white/40 group w-[220px]"
+          className="fixed bottom-8 right-8 z-[100] bg-white/95 backdrop-blur-2xl rounded-[24px] shadow-[0_15px_40px_rgba(0,0,0,0.12)] p-4 border border-white/40 group w-[240px]"
         >
           {/* Close Button - Minimal */}
           <button 
@@ -59,19 +59,27 @@ export function SocialPopup() {
             <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Connect With Me</span>
           </div>
           
-          <div className="flex justify-between items-center gap-2">
-            {socialLinks.slice(0, 4).map((link) => (
-              <a
-                key={link.name}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                title={link.name}
-                className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center text-gray-400 hover:text-white hover:bg-black hover:-translate-y-1 transition-all duration-300"
-              >
-                <link.icon className="w-[18px] h-[18px]" />
-              </a>
-            ))}
+          <div className="flex justify-between items-center gap-1.5">
+            {socialLinks.slice(0, 5).map((link) => {
+              const isFiverr = link.name === 'Fiverr';
+              const isWhatsApp = link.name === 'WhatsApp';
+              return (
+                <a
+                  key={link.name}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={link.name}
+                  className={`w-9 h-9 rounded-xl bg-gray-50 flex items-center justify-center hover:-translate-y-1 transition-all duration-300 ${
+                    isFiverr ? 'text-[#1DBF73] hover:bg-[#1DBF73] hover:text-white' : 
+                    isWhatsApp ? 'text-[#25D366] hover:bg-[#25D366] hover:text-white' :
+                    'text-gray-400 hover:text-white hover:bg-black'
+                  }`}
+                >
+                  <link.icon className="w-[18px] h-[18px]" />
+                </a>
+              );
+            })}
           </div>
 
           <div className="mt-3 pt-3 border-t border-gray-50 flex items-center gap-1.5 px-1">

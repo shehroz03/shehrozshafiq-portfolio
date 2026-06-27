@@ -41,6 +41,38 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "voteoffside",
+    title: "VoteOffside – Real-Time Match Prediction & Voting Platform",
+    slug: "voteoffside-match-prediction",
+    category: "Web App",
+    tagline: "Real-time match prediction and global leaderboard platform for FIFA World Cup 2026.",
+    shortDescription:
+      "VoteOffside is a live football match prediction and voting web application designed for the FIFA World Cup 2026. Built with React, Vite, Tailwind CSS, and Supabase, it allows sports enthusiasts to predict match outcomes, track live voting trends, and compete on global leaderboards.",
+    tech: ["React", "Vite", "Tailwind CSS", "Supabase", "TypeScript"],
+    image: "/images/projects/voteoffside (1).png",
+    extraImages: ["/images/projects/voteoffside (2).png", "/images/projects/voteoffside (3).png"],
+    liveUrl: "https://voteoffside.com",
+    codeUrl: "https://github.com/shehroz03/voteoffside",
+    githubUrl: "https://github.com/shehroz03/voteoffside",
+    featured: true,
+    status: 'published',
+    color: "from-blue-600 to-indigo-800",
+    overview: "A high-performance interactive web application built to engage football fans worldwide during the FIFA World Cup 2026. It combines live voting mechanics with real-time leaderboard rankings and community insights.",
+    solutionFeatures: [
+      "Real-time match outcome voting & statistics",
+      "Live global prediction leaderboard",
+      "Secure authentication & live data sync via Supabase",
+      "Sleek, responsive Dark Mode sports UI"
+    ],
+    role: "Lead Full-Stack Developer",
+    timeline: "2026",
+    impact: [
+      "Engineered real-time voting synchronization via Supabase",
+      "Designed a premium Dark Mode sports UI with Tailwind CSS",
+      "Sub-second live leaderboard calculations and rank updates"
+    ]
+  },
+  {
     id: "socialvibing-ecosystem",
     title: "SocialVibing – Full-Stack Social Networking & Analytics Ecosystem",
     slug: "socialvibing-full-ecosystem",
@@ -74,7 +106,7 @@ export const projects: Project[] = [
     image: "/images/projects/scholariq.png",
     extraImages: ["/images/projects/scholariq1.png"],
     videoUrl: "/videos/scholariqvideo.mp4",
-    liveUrl: "",
+    liveUrl: "https://scholarship.broadsolutiontech.com",
     codeUrl: "",
     featured: true,
     status: 'published',
