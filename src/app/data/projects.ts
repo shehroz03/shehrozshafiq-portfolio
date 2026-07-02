@@ -41,8 +41,48 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "fitcore-pro",
+    title: "FitCore Pro - AI-Powered Full-Stack Fitness & Nutrition Ecosystem",
+    slug: "fitcore-pro-fitness-ecosystem",
+    category: "Mobile App",
+    tagline: "AI-driven fitness app with personalized diet planning, workout videos & smart health tracking.",
+    shortDescription:
+      "A complete AI-powered fitness ecosystem that combines personalized diet planning, guided workout & yoga video libraries, and smart health tracking in one app. Features gender-specialized AI diet doctors that build weekly meal and exercise plans tailored to each user's goals and health conditions.",
+    tech: ["React Native", "Expo", "Supabase", "PostgreSQL", "OpenAI GPT-4", "Deno", "Zustand", "React Query"],
+    image: "/images/projects/fitcore (1).jpeg",
+    extraImages: [
+      "/images/projects/fitcore (2).jpeg",
+      "/images/projects/fitcore (3).jpeg",
+      "/images/projects/fitcore (4).jpeg"
+    ],
+    // videoUrl: "/videos/fitcorevideo.mp4", // Uncomment and update path when you record the demo video
+    liveUrl: "",
+    codeUrl: "https://github.com/shehroz03/fitpro-app",
+    githubUrl: "https://github.com/shehroz03/fitpro-app",
+    featured: true,
+    status: 'published',
+    color: "from-emerald-500 to-teal-700",
+    overview: "A complete AI-powered fitness ecosystem that combines personalized diet planning, guided workout & yoga video libraries, and smart health tracking in one app. Features gender-specialized AI diet doctors that build weekly meal and exercise plans tailored to each user's goals and health conditions.",
+    context: "Most fitness apps offer generic diet charts and ignore individual health conditions - especially women's health needs like PCOS, pregnancy, and hormonal issues. Users juggle separate apps for diet, workouts, yoga, and tracking, with no intelligent guidance connecting them. FitCore solves this with AI doctors that understand each user's body, goals, and medical context before prescribing anything.",
+    solutionFeatures: [
+      "AI Diet Doctors (Dr. Ayesha & Dr. Ahmed) - gender-specialized GPT-powered consultations with medical-style intake (PCOS, pregnancy, allergies) that generate 7-day diet plans + weekly exercise schedules",
+      "AI Food Scanner - snap a plate photo and instantly detect all food items with calories & macros via GPT-4 Vision",
+      "Guided Video Library - 31 workout plans, 31 yoga pose videos & 6 meditation sessions with a voice AI coach (OpenAI TTS)",
+      "Smart Health Tracking - workouts, meals, water, sleep, body measurements & goals with streaks and a female-focused fitness dashboard"
+    ],
+    role: "Lead Full-Stack Developer",
+    timeline: "Mar 2026 - Present",
+    impact: [
+      "Unified 5 separate app experiences (diet, workouts, yoga, meditation, tracking) into one AI-driven platform",
+      "Built 4 serverless AI edge functions (diet doctor, AI coach, food analyzer, TTS coach) with rate limiting & safety guardrails",
+      "Multilingual AI support - English, Urdu, Roman Urdu & Hindi with automatic language detection",
+      "Secured user data with PostgreSQL Row-Level Security across 7+ data tables",
+      "60+ professionally curated exercise & yoga videos served via cloud storage CDN"
+    ]
+  },
+  {
     id: "voteoffside",
-    title: "VoteOffside – Real-Time Match Prediction & Voting Platform",
+    title: "VoteOffside - Real-Time Match Prediction & Voting Platform",
     slug: "voteoffside-match-prediction",
     category: "Web App",
     tagline: "Real-time match prediction and global leaderboard platform for FIFA World Cup 2026.",
@@ -74,7 +114,7 @@ export const projects: Project[] = [
   },
   {
     id: "socialvibing-ecosystem",
-    title: "SocialVibing – Full-Stack Social Networking & Analytics Ecosystem",
+    title: "SocialVibing - Full-Stack Social Networking & Analytics Ecosystem",
     slug: "socialvibing-full-ecosystem",
     category: ["Web App", "Mobile App"],
     tagline: "Full-stack networking ecosystem with Marketplace & Community Chat.",
@@ -85,40 +125,55 @@ export const projects: Project[] = [
     extraImages: ["/images/projects/socialvibing1.jpeg", "/images/projects/socialvibing2.jpeg"],
     videoUrl: "/videos/socialvibingvideo.mp4",
     liveUrl: "https://socialvibing.online",
-    codeUrl: "",
+    codeUrl: "https://github.com/shehroz03/social-vibing",
     featured: true,
     status: 'published',
     overview: "A massive ecosystem project that bridges the gap between social engagement, e-commerce, and data analytics. It provides a unified experience for creators to build communities and sell products.",
     solutionFeatures: ["Integrated Marketplace & Store", "Real-time Community Chat", "Live Streaming & Engagement", "Advanced Analytics Dashboard"],
     role: "Lead Full-Stack Developer",
-    timeline: "Jan 2023 – Present",
+    timeline: "Jan 2023 - Present",
     impact: ["Unified social networking with e-commerce", "Reduced app load time by 35%", "Scalable architecture for 100k+ users"]
   },
   {
     id: "scholariq",
-    title: "ScholarIQ – AI‑Driven Scholarship Assistant (FYP)",
+    title: "ScholarIQ - AI-Powered Scholarship & Study-Abroad Intelligence Platform",
     slug: "scholariq-scholarship-platform",
     category: "Web App",
-    tagline: "AI-driven scholarship platform with Premium AI Consultant.",
+    tagline: "Full-stack AI platform that matches students to verified scholarships, detects fraud, and guides visa applications.",
     shortDescription:
-      "ScholarIQ helps students discover global scholarships through intelligent data scraping and AI-powered recommendations. Features a new Premium AI Consultant for tailored application guidance and eligibility analysis.",
-    tech: ["React", "Python", "SQLite"],
-    image: "/images/projects/scholariq.png",
-    extraImages: ["/images/projects/scholariq1.png"],
-    videoUrl: "/videos/scholariqvideo.mp4",
-    liveUrl: "https://scholarship.broadsolutiontech.com",
-    codeUrl: "",
+      "A comprehensive AI ecosystem that solves the biggest problem international students face: finding legitimate, best-fit scholarships. It combines machine-learning recommendations, fraud detection, retrieval-augmented AI chat, and autonomous data bots into one unified platform for students, teachers, and admins.",
+    tech: ["React", "TypeScript", "Vite", "Python", "FastAPI", "SQLAlchemy", "scikit-learn", "OpenAI GPT-4o", "Sentence-Transformers", "Tailwind CSS", "AWS EC2", "Vercel"],
+    image: "/images/projects/scholariq (1).png",
+    extraImages: ["/images/projects/scholariq (2).png", "/images/projects/scholariq (3).png"],
+    // videoUrl: "/videos/scholariqvideo.mp4",
+    liveUrl: "https://scholarship.broadsolutiontech.com/",
+    codeUrl: "https://github.com/shehroz03/scholarshipIQ",
     featured: true,
     status: 'published',
-    overview: "An AI-powered platform for global scholarship discovery, featuring a sophisticated AI Consultant and a subscription-based Premium Version for advanced tracking and guidance.",
-    solutionFeatures: ["Premium AI Consultant Assistant", "Subscription-based Feature Tiers", "Intelligent Search & Filtering", "Real-time Opportunity Alerts"],
-    role: "Full-Stack Developer",
-    timeline: "Oct 2025 – Feb 2026",
-    impact: ["Enabled premium personalized guidance", "100% data accuracy in scraping", "Streamlined application workflows"]
+    color: "from-blue-600 to-indigo-800",
+    overview: "A comprehensive AI ecosystem that solves the biggest problem international students face: finding legitimate, best-fit scholarships. It combines machine-learning recommendations, fraud detection, retrieval-augmented AI chat, and autonomous data bots into one unified platform for students, teachers, and admins.",
+    context: "International students waste months manually searching scattered scholarship listings - many of which are outdated or outright scams. There was no single trustworthy platform that could personalize recommendations, verify legitimacy, and guide the full journey from application to visa. ScholarIQ was built to close that gap end-to-end.",
+    solutionFeatures: [
+      "AI Scholarship Matching - Hybrid ML engine (RandomForest + rule-based) ranks scholarships by each student's profile fit",
+      "Fraud Detection System - ML + rule-based engine flags scam/fake listings before they reach students",
+      "RAG-Powered AI Assistant - GPT-4o chatbot grounded on verified data (student / teacher / admin modes)",
+      "Autonomous Data Bots - Self-updating scholarship data via Google Search + GPT-4o with confidence gating",
+      "AI Visa Guidance - Personalized readiness score + document checklist per country",
+      "Teacher Marketplace - Courses, reviews, and AI mentoring tools for education consultants"
+    ],
+    role: "Lead Full-Stack & AI/ML Developer",
+    timeline: "2025 - 2026 (Final Year Project)",
+    impact: [
+      "Unified scholarship discovery, fraud-checking, and visa guidance into one platform",
+      "5 integrated AI/ML models (recommendation, fraud, embeddings, 2× GPT)",
+      "Automated data freshness via bots - near-zero manual maintenance",
+      "Role-based system serving students, teachers, and admins with JWT-secured access",
+      "Deployed to production: React frontend on Vercel, FastAPI backend on AWS EC2"
+    ]
   },
   {
     id: "tourease",
-    title: "TourEase – Trip & Travel Planner App (Flutter)",
+    title: "TourEase - Trip & Travel Planner App (Flutter)",
     slug: "tourease-travel-platform",
     category: "Mobile App",
     tagline: "Travel app with three roles (admin, user, agency) for trips and bookings.",
@@ -128,13 +183,13 @@ export const projects: Project[] = [
     image: "/images/projects/tourease.jpg",
     extraImages: ["/images/projects/tourease1.jpg", "/images/projects/tourease2.jpg"],
     liveUrl: "",
-    codeUrl: "",
+    codeUrl: "https://github.com/shehroz03/Tourease",
     featured: true,
     status: 'published',
     overview: "A multi-role travel marketplace connecting travelers with verified agencies via a secure booking platform.",
     solutionFeatures: ["Role-based (Admin/User/Agency)", "Secure bookings", "Trip management", "Real-time tracking"],
     role: "Mobile Developer",
-    timeline: "Nov 2025 – Dec 2025",
+    timeline: "Nov 2025 - Dec 2025",
     impact: ["Reduced booking time by 60%", "Unified 50+ agencies in one platform"]
   },
   {
@@ -153,7 +208,7 @@ export const projects: Project[] = [
     overview: "Automated data harvesting pipeline designed to extract and structure actionable business leads from complex directories.",
     solutionFeatures: ["Anti-detection bypass", "Multi-threaded scraping", "Data cleaning", "Automatic formatting"],
     role: "Automation Engineer",
-    timeline: "Mar 2024 – May 2024",
+    timeline: "Mar 2024 - May 2024",
     impact: ["Extracted 100k+ records per week", "Reduced manual data entry by 95%"]
   },
   {
@@ -167,13 +222,13 @@ export const projects: Project[] = [
     tech: ["React", "Node.js", "Express", "MongoDB", "Socket.io"],
     image: "/images/projects/serenity-connect.jpg",
     liveUrl: "",
-    codeUrl: "",
+    codeUrl: "https://github.com/shehroz03/serenity_connect",
     featured: true,
     status: 'published',
     overview: "A MERN stack application providing a safe space for mental health support through anonymous chat and professional booking.",
     solutionFeatures: ["Anonymous chat", "Therapy booking", "Personal journal", "Mood tracker"],
     role: "Full-Stack Developer",
-    timeline: "May 2024 – Dec 2024",
+    timeline: "May 2024 - Dec 2024",
     impact: ["Over 10,000 hours of support provided", "Recognized as top wellness app"]
   },
   {
@@ -193,12 +248,12 @@ export const projects: Project[] = [
     overview: "A modern company profile website built with React and Vite, showcasing textile heritage for global clients.",
     solutionFeatures: ["Bilingual support", "Dark/Light mode", "Lead generation forms", "Interactive catalog"],
     role: "Frontend Specialist",
-    timeline: "Jan 2024 – Feb 2024",
+    timeline: "Jan 2024 - Feb 2024",
     impact: ["200% increase in international inquiries", "Perfect Lighthouse performance score"]
   },
   {
     id: "art-gallery",
-    title: "ArtGallery.pk – Luxury 3D Art Marketplace",
+    title: "ArtGallery.pk - Luxury 3D Art Marketplace",
     slug: "art-gallery-luxury-marketplace",
     category: "Web App",
     tagline: "Premium art marketplace with AR preview and 3D UI.",
@@ -208,18 +263,18 @@ export const projects: Project[] = [
     extraImages: ["/images/projects/artgallery1.png", "/images/projects/artgallery2.png"],
     videoUrl: "/videos/artgalleryvideo.mp4",
     liveUrl: "https://artgallery.pk",
-    codeUrl: "",
+    codeUrl: "https://github.com/shehroz03/artgallery-pk",
     featured: true,
     status: 'published',
     color: "from-purple-500 to-indigo-600",
     overview: "Production-ready luxury marketplace built from scratch to provide a high-end experience for art collectors and sellers.",
     context: "Buying luxury art online often lacks the 'physical' feel. ArtGallery.pk solves this by allowing users to preview art in their own space using AR and a high-end 3D interface.",
     solutionFeatures: [
-      "AR Try-On Studio – upload room photo and preview painting on your wall",
-      "Role-Based Panels – separate dashboards for Admin, Buyer, and Seller",
-      "3D Floating Cards – mouse-responsive tilt and glow animations",
-      "Artwork Marketplace – advanced filters by category, price, and artist",
-      "Secure Auth – JWT authentication with encrypted passwords"
+      "AR Try-On Studio - upload room photo and preview painting on your wall",
+      "Role-Based Panels - separate dashboards for Admin, Buyer, and Seller",
+      "3D Floating Cards - mouse-responsive tilt and glow animations",
+      "Artwork Marketplace - advanced filters by category, price, and artist",
+      "Secure Auth - JWT authentication with encrypted passwords"
     ],
     role: "Full-Stack Developer",
     timeline: "2026",
