@@ -331,11 +331,11 @@ export const projects: Project[] = [
     shortDescription:
       "An addictive 3D puzzle game developed in Flutter, designed to challenge the player's spatial reasoning and logic. Players must carefully observe the direction of arrows on each block and tap them in the correct sequence to clear the board across challenging levels.",
     tech: ["Flutter", "Dart", "Provider", "State Management"],
-    image: "/images/projects/arrow puzzle (1).jpeg", 
+    image: "/images/projects/arrow-puzzle-1.jpeg", 
     extraImages: [
-      "/images/projects/arrow puzzle (2).jpeg",
-      "/images/projects/arrow puzzle (3).jpeg",
-      "/images/projects/arrow puzzle (4).jpeg"
+      "/images/projects/arrow-puzzle-2.jpeg",
+      "/images/projects/arrow-puzzle-3.jpeg",
+      "/images/projects/arrow-puzzle-4.jpeg"
     ],
     liveUrl: "https://play.google.com/store/apps/details?id=com.shehroz.arrowpuzzlegame",
     codeUrl: "https://github.com/shehroz03/arrowx-flutter-puzzle", 
