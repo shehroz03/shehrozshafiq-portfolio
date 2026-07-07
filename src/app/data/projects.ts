@@ -285,6 +285,44 @@ export const projects: Project[] = [
       "Cloud-based image storage via Cloudinary"
     ]
   },
+  {
+    id: "arrow-puzzle-game",
+    title: "Arrow Puzzle: Tap Away Game",
+    slug: "arrow-puzzle-tap-away",
+    category: "Mobile App",
+    tagline: "A 3D logic puzzle game where players tap away blocks in the correct direction.",
+    shortDescription:
+      "An addictive 3D puzzle game developed in Flutter, designed to challenge the player's spatial reasoning and logic. Players must carefully observe the direction of arrows on each block and tap them in the correct sequence to clear the board across challenging levels.",
+    tech: ["Flutter", "Dart", "Provider", "State Management"],
+    image: "/images/projects/arrow puzzle (1).jpeg", 
+    extraImages: [
+      "/images/projects/arrow puzzle (2).jpeg",
+      "/images/projects/arrow puzzle (3).jpeg",
+      "/images/projects/arrow puzzle (4).jpeg"
+    ],
+    liveUrl: "https://play.google.com/store/apps/details?id=com.shehroz.arrowpuzzlegame",
+    codeUrl: "https://github.com/shehroz03/arrowx-flutter-puzzle", 
+    githubUrl: "https://github.com/shehroz03/arrowx-flutter-puzzle",
+    featured: true,
+    status: 'published',
+    color: "from-blue-500 to-cyan-600",
+    overview: "A highly engaging 3D block puzzle game built with Flutter. It challenges users to think critically and plan their moves to clear intricate formations of blocks by tapping them away in the correct direction.",
+    context: "Mobile gamers are constantly looking for engaging, offline-capable brain teasers that offer quick sessions but increasing complexity. Many traditional puzzle games lack satisfying 3D interaction, smooth animations, and progressive difficulty.",
+    solutionFeatures: [
+      "Intuitive tap-to-clear 3D block mechanics",
+      "Hundreds of progressively challenging levels",
+      "Fully playable offline without internet dependency",
+      "In-game shop and coin reward system",
+      "Smooth animations and visually appealing UI"
+    ],
+    role: "Lead Mobile Game Developer",
+    timeline: "June 2026 - July 2026",
+    impact: [
+      "Successfully developed and published a fully functional 3D logic game on the Google Play Store",
+      "Engineered complex level generation and state management using Flutter's Provider",
+      "Optimized game performance for 60fps smooth animations across low to mid-range mobile devices"
+    ]
+  },
 ];
 
 // Helper functions
